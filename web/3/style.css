@@ -1,6 +1,6 @@
 /**
- * Personal Leadership Effectivenes
- * Author : RemoteLink Team
+ * Karelia
+ * Author : Jhon Ryven Bnsl
  * ===================================================================
  * Table of Contents
  *
@@ -1160,6 +1160,7 @@ article:after {
         text-align: center;
         margin-top: -130px;
         margin-bottom: -130px;
+        overflow: hidden;
         padding: 10px;
     }
     .retro-icon {
@@ -1167,6 +1168,7 @@ article:after {
         right: 0px;
         transform: rotate(90deg);
         height: auto;
+        width: 40px;
     }
     .retro-content-2 {
         width: 100%;
