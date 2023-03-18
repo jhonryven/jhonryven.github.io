@@ -981,11 +981,9 @@ header{
     padding-bottom: 5rem;
     .contact_container{
         padding: 2rem 1rem;
-        /*display: grid;
-         grid-template-columns: repeat(auto-fit, 28rem); */
-         display: flex;
+        display: flex;
         gap: 1rem;
-        background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('images/2_bg.jpg') center/cover no-repeat;
+        background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('images/2_bg.jpg') center/cover fixed no-repeat;
         box-shadow: 0 0 10px 5px rgba(255,255,255, 0.5);
         align-items: center;
         justify-content: space-evenly;
