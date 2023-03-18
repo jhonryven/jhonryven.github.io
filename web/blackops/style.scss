@@ -1,0 +1,1096 @@
+// 
+// Cafe
+// Author : Jhon Ryven Bonsol
+// ===================================================================
+// Table of Contents
+// 
+// 0.0 - Fonts & Global Styles
+//      0.5 - Header Responsive
+// 1.0 - Hero Section
+//      1.5 - Hero Section Responsive
+// 2.0 - Our Coffee Section
+//      2.5 - Our Coffee Section Responsive
+// 3.0 - About Section
+//      3.5 - About Section Responsive
+// 4.0 - Menu Section
+//      4.5 - Menu Section Responsive
+// 5.0 - Specials Section
+//      5.5 - Specials Responsive
+// 6.0 - Our Barista's Section
+//      6.5 - Our Barista's Responsive
+// ================================================================= 
+// 0 :: Fonts & Global Styles
+// =================================================================
+
+/*==== Fonts ====*/
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Anton&family=Kalam:wght@300;400;700&display=swap');
+/* font-family: 'Abel', sans-serif;
+   font-family: 'Anton', sans-serif;
+   font-family: 'Kalam', cursive; */
+
+/*==== Colors ====*/
+:root{
+    --dark-background:#0f0f0f;
+}
+
+*{
+    margin: 0%;
+    padding: 0%;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+    transition: .5s ease all;
+    list-style: none;
+    text-decoration: none;
+}
+
+.inside{
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+body{
+    font-family:'Abel', sans-serif;
+    background: url('images/about_bg.jpg') center/cover fixed no-repeat;
+}
+.divider-start{
+    width: 100%;
+    position: relative;
+    img{
+        width: 100%;
+        height: 50px;
+        top: -40px;
+        position: absolute;
+        left: 0;
+    }
+}
+.divider-end{
+    width: 100%;
+    position: relative;
+    img{
+        width: 100%;
+        height: 50px;
+        bottom: -45px;
+        position: absolute;
+        left: 0;
+        transform: scaleY(-1);
+    }
+}
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110vh;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+//-------------------------------
+// Header Section
+//-------------------------------
+header{
+    position: relative;
+    background: var(--dark-background);
+    padding: 2rem 1rem;
+    width: 100%;
+    box-shadow:0 0 10px 0 #ffffff;
+    text-align: center;
+
+    .header_container{
+       display: flex;
+       justify-content: space-between; 
+       align-items: center;
+       position: relative;
+        nav{
+            ul{
+                display: flex;
+                gap: 1rem;
+                li{
+                    a{
+                        color: white;
+                        text-transform: uppercase;
+                        font-weight: 500;
+                        font-size: 1.2rem;
+                        cursor: pointer;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        
+        .header_logo{
+            display: flex;
+            justify-content: center;
+            pointer-events: none;
+            position: absolute;
+            text-align: center;
+            top: -20px;
+            width: 100%;
+    
+            img{
+                width: 130px;
+                filter: drop-shadow(0 0 5px white);
+            }
+        }
+
+        .header_contacts{
+            ul{
+                display: flex;
+                gap: 1rem;
+                li{
+                    a, svg{
+                        color: white;
+                        fill: white;
+                        font-size: 1.2rem;
+                        width: 1.2rem;
+                        cursor: pointer;
+                    }
+                }
+                li:nth-child(5){
+                    border-left: 1px solid white;
+                    padding-left: 1rem;
+                }
+            }
+        }
+
+        .burgerbars{
+            position: relative;
+            display: none;
+            width: 100%;
+            justify-content: flex-end;
+            a{
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        }
+
+    }
+}
+
+//-------------------------------
+// Header Responsive
+//-------------------------------
+@media screen and (max-width:1280px) {
+    .nav_menu{
+        li{
+            a{
+                font-size: 1rem!important;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    header {
+        padding: 1.5rem;
+
+        nav,.header_contacts {
+            display: none !important;
+        }
+
+        .header_logo {
+            position: absolute!important;
+            top: -8px!important;
+            img{
+                width: 100px!important;
+            }
+        }
+        .burgerbars{
+            display: flex!important;
+        }
+    }
+}
+
+// ================================================================= 
+// 1 :: Hero Section
+// =================================================================
+.hero_section{
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,0.5));
+    height: 100vh;
+    width: 100%;
+    padding: 0 1rem;
+    .hero_contents{
+        display: flex;
+        align-items: flex-start;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        h1{
+            font-family: 'Abel', cursive;
+            font-size: 5rem;
+            color: white;
+            line-height: 5rem;           
+            span{
+                color: rgb(180, 110, 0);
+            }
+        }
+        p{
+            font-family: 'Kalam', sans-serif;
+            font-weight: 500;
+            font-size: 4rem;
+            color: white;
+        }
+        .hero_buttons{
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            .herobtn{
+                text-transform: uppercase;
+                border: 2px solid white;
+                padding: 1rem 1.5rem;
+                border-radius: 20px;
+                font-size: 1.1rem;
+                cursor: pointer;
+                letter-spacing: 3px;
+            }
+            #btnbooknow{
+                color: white;
+                background: none;
+            }
+            #btnviewnow{
+                color: black;
+                background-color: white;
+
+            }
+        }
+    }
+}
+
+//-------------------------------
+// 1.5 :: Hero Responsive
+//-------------------------------
+@media screen and(max-width:980px) {
+    .hero_contents{
+        text-align: center;
+        align-items: center!important;
+        h1{
+            font-family: 'Kalam', cursive;
+            font-size: 3.5rem!important;
+            color: white;
+            line-height:4rem!important;           
+        }
+        p{
+            font-family: 'Abel', sans-serif;
+            font-weight: 500;
+            font-size: 2rem!important;
+            color: white;
+            text-align: center;
+        }
+        .hero_buttons{
+            align-items: center!important;
+            justify-content: center!important;
+            display: flex;
+
+            .herobtn{
+                padding: 1rem 1rem!important;
+            }
+        }
+    }
+}
+
+// ================================================================= 
+// 2 :: Our Coffee Section
+// =================================================================
+.our-coffee_section {
+    background: url("images/about_bg.jpg") center / cover no-repeat;
+    width: 100%;
+    text-align: center;
+    .our-coffee_container {
+      padding: 5rem 2rem;
+      width: 100%;
+      .our-coffee_title {
+        padding-bottom: 30px;
+        font-family: 'Kalam', sans-serif;
+        h1 {
+          color: white;
+          font-size: 3rem;
+          letter-spacing: 5px;
+        }
+        span {
+          color: white;
+          font-size: 2rem;
+          position: relative;
+          i {
+            font-size: 3rem;
+            color: rgb(180, 110, 0);
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 2px;
+            background-color: #fff;
+            left: -10rem;
+            top: 35%;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 2px;
+            background-color: #fff;
+            right: -10rem;
+            top: 35%;
+          }
+        }
+      }
+      .our-coffee_contents {
+        width: 100%;
+        display: grid;
+        justify-content: center;
+        gap: 2rem;
+        grid-template-columns: repeat(3, 1fr);
+        position: relative;
+        .coffee-contents_image {
+          order: 2;
+          align-items: center;
+          display: flex;
+          justify-content: center;
+          img {
+            width: 100%;
+            filter: drop-shadow(0px 0px 3px rgba(255, 255, 255));
+            //-webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0.5) 100%);
+          }
+        }
+        .coffee-contents {
+          padding-top: 2rem;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          justify-content: center;
+          gap: 2rem;
+          li {
+            display: flex;
+            color: white;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: center;
+            h3 {
+              font-size: 2rem;
+              color: #fff;
+            }
+            i {
+              color: rgb(180, 110, 0);
+              font-size: 2.8rem;
+            }
+            p {
+                color: #acacac;
+              font-size: 1.5rem;
+              word-break: break-all;
+            }
+          }
+        }
+        #coffee-contents_left {
+          order: 1;
+          li {
+            flex-direction: row-reverse;
+            i {
+              padding-left: 0.5rem;
+            }
+            p {
+              padding-right: 3rem;
+              text-align: right;
+            }
+          }
+        }
+  
+        #coffee-contents_right {
+          order: 3;
+          li {
+            flex-direction: row;
+            i {
+              padding-right: 0.5rem;
+            }
+            p {
+              padding-left: 4rem;
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+  }
+
+//-------------------------------
+// 2.5 :: Our Coffee Responsive
+//-------------------------------
+@media screen and(max-width:1280px){
+    .coffee-contents{
+        gap: 1rem!important;
+    }
+}
+@media screen and(max-width:1024px){
+    .title-icon{
+        &::before{
+            width: 115px!important;
+            left: -130px !important;
+        }
+        &::after{
+            width: 115px!important;
+            left:60px;
+        }
+    }
+    .our-coffee_contents{
+        gap: 1rem !important;
+        grid-template-columns: repeat(1, 1fr)!important;
+
+        .coffee-contents_image{
+            img{
+                width: 50%!important;
+            }
+            order: 1!important;
+            
+        }
+        .coffee-contents{
+            gap: 3rem!important;
+            li {
+                flex-direction: column!important;
+                justify-content: center!important;
+                align-items: center;      
+                  
+                i {
+                    font-size: 4rem!important;
+                    padding-bottom: 1rem;
+                  }
+                h3 {
+                  font-size: 3rem;
+                }
+                p {
+                    padding: 0 0rem!important;
+                   text-align: justify!important;
+                }
+              }
+        }
+        #coffee-contents_left{
+            order: 2!important;
+        }
+        #coffee-contents_right{
+            order: 3!important;
+        }
+    }
+}
+
+// ================================================================= 
+// 3 :: About Section
+// =================================================================
+.about_section {
+    width: 100%;
+    padding:10rem 5rem;
+    text-align: center;
+    overflow: hidden;
+    background: white;
+    .about_title {
+        padding-bottom: 30px;
+        font-family: 'Kalam', sans-serif;
+        h1 {
+            color: rgb(0, 0, 0);
+            font-size: 3rem;
+            letter-spacing: 5px;
+        }
+
+        span {
+            color: rgb(0, 0, 0);
+            font-size: 2rem;
+            position: relative;
+
+            i {
+                font-size: 3rem;
+                color: rgb(180, 110, 0);
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 150px;
+                height: 2px;
+                background-color: rgb(0, 0, 0);
+                left: -10rem;
+                top: 35%;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 150px;
+                height: 2px;
+                background-color: rgb(0, 0, 0);
+                right: -10rem;
+                top: 35%;
+            }
+        }
+    }
+    .about_container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; 
+        gap: 2rem;
+        .about-contents{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            padding-top: 3rem;
+            h3{
+                font-family: 'Abel', sans-serif;
+                font-size: 3rem;
+                letter-spacing: 5px;
+                font-weight: 600;
+                text-align: left;
+                span{
+                    color: rgb(180, 110, 0);
+                    position: relative;
+                    &::after{
+                        content: '';
+                        width: 80px;
+                        background-color: black;
+                        left: 100%;
+                        top: 50%;
+                        height: 3px;
+                        position: absolute;
+                    }
+                }
+            }
+            p{
+                text-align: justify;
+                margin-top: 2rem;
+                text-indent: 3rem;
+                font-size: 1.5rem;
+                color: #2f2f2f;
+            }
+
+        }
+        .about-image{
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            position: relative;
+            background: url('images/about.jpg') center/cover no-repeat;
+            height: 450px;
+            max-height: 100%;
+            
+            &::before{
+                content: '';
+                padding: 10rem;
+                border: 5px solid rgb(180, 110, 0);
+                background-color: none;
+                position: absolute;
+                top: -50px;
+                right: -50px;
+                z-index: -1;
+            }
+            &::after{
+                content: '';
+                padding: 5rem;
+                border: 5px solid rgb(180, 110, 0, 0.5);
+                background-color: none;
+                position: absolute;
+                bottom: -50px;
+                left: -50px;
+                z-index: -1;
+            }
+        }
+    }
+}
+
+//-------------------------------
+// 3.5 :: About Responsive
+//-------------------------------
+@media screen and (max-width: 1280px){
+    .about_section {
+        width: 100%;
+        padding:10rem 2rem!important;
+        text-align: center;
+        overflow: hidden;
+        .about_container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
+            gap: 2rem;
+            .about-contents{
+                width: 100%;
+                order: 2;
+                p{
+                    word-break: break-all;
+                }
+
+            }
+            .about-image{
+                width: 100%;
+                order: 1;
+                
+                &::after,&::before{
+                    display: none;
+                }
+                
+            }
+        }
+    }
+}
+
+// ================================================================= 
+// 4 :: Menu Section
+// =================================================================
+.menu_section{
+    background: #0f0f0f;
+    .menu_container{
+        height: 100%;
+        text-align: center;
+        padding: 5rem 0;
+        .menu_title {
+            padding-bottom: 30px;
+            font-family: 'Kalam', sans-serif;
+            h1 {
+                color: rgb(255, 255, 255);
+                font-size: 3rem;
+                letter-spacing: 5px;
+            }
+    
+            span {
+                color: rgb(255, 255, 255);
+                font-size: 2rem;
+                position: relative;
+    
+                i {
+                    font-size: 3rem;
+                    color: rgb(180, 110, 0);
+                }
+    
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 150px;
+                    height: 2px;
+                    background-color: rgb(255, 255, 255);
+                    left: -10rem;
+                    top: 35%;
+                }
+    
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 150px;
+                    height: 2px;
+                    background-color: rgb(255, 255, 255);
+                    right: -10rem;
+                    top: 35%;
+                }
+            }
+        }
+
+        .menu_category{
+            padding-bottom: 2rem;
+            .active{
+                color: rgb(180, 110, 0);
+                border-bottom: 1px solid white;
+            }
+            ul{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap:2rem;
+                li{
+                    a{
+                        color: white;
+                        text-transform: uppercase;
+                        font-size: 1.2rem;
+                        padding-bottom: .3rem;
+                    }
+                }
+            }
+        }
+
+        .menu_list{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 20rem);
+            gap: 2rem;
+            row-gap: 5rem;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 5rem;
+            .menu{
+                text-align: left;
+                max-height: 100%;
+                height: 250px;
+                border-radius: 5%;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 5%;
+                    }
+                    h1{
+                        color: white;
+                    }
+                    &:hover{
+                        img{
+                            filter:drop-shadow(0 0 5px rgba(180, 110, 0))
+                        }
+                        h1{
+                            color: rgba(180, 110, 0);
+                        }
+                    }
+            }
+        }
+    }
+}
+
+//-------------------------------
+// 4.5 :: Menus Responsive
+//-------------------------------
+@media screen and(max-width:1280px) {
+    .menu_category{
+        ul{
+            gap: 1rem !important;
+            li{
+                a{
+                    font-size: 1rem!important;
+                }
+            }
+        }
+    }
+}
+
+// ================================================================= 
+// 5 :: Specials Section
+// =================================================================
+.specials_section{
+    width: 100%;
+    padding: 5rem 0;
+    background: url('images/barista.jpg') center/cover no-repeat;
+    .specials_title{
+        text-align: center;
+        font-family: 'Kalam', sans-serif;
+        h1{
+            font-size: 3rem;
+            letter-spacing: 5px;
+        }
+        span{
+            color: rgb(180, 110, 0);
+            font-size: 1.2rem;
+        }
+    }
+    .specials_container{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit,20rem);
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        padding: 2rem 0;
+
+        .specials{
+            height: 350px;
+            background-position: center;
+            border-radius: 10px;
+            box-shadow: 0 0 5px 2px rgba(0,0,0,0.7);
+            &:hover{
+                box-shadow: 0 0 10px rgba(0,0,0,0.7);
+            }
+            .specials-overlay{
+                width: 100%;
+                height: 100%; 
+                background:rgba(0,0,0,0);
+                display: flex;
+                align-items: flex-end;
+                padding: 1rem;
+                border-radius: 10px;
+                justify-content: space-between;
+                cursor: pointer;
+                h1{
+                    opacity: 0;
+                    font-size: 2rem;
+                }
+                p{
+                    opacity: 0;
+                    font-size: 2rem;
+                    color: white;
+                }
+                &:hover{
+                    background:linear-gradient(to bottom, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.7) 80%);
+                    border-radius: 10px;
+                    h1{
+                        color: white;
+                        opacity: 1!important;
+                    }
+                    p{
+                        opacity: 1!important;
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+        #specials1{
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('images/menu13.jpg') center/cover no-repeat;
+        }
+        #specials2{
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('images/menu11.jpg') center/cover no-repeat;
+        }
+        #specials3{
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('images/menu14.jpg') center/cover no-repeat;
+        }
+    }
+}
+
+//-------------------------------
+// 5.5 :: Specials Responsive
+//-------------------------------
+@media screen and(max-width:980px) {
+    .specials_title{
+        h1{
+            line-height: 3rem!important;
+        }
+        span{
+            -webkit-filter: drop-shadow(0 0 5px white);
+        }
+    }
+}
+
+// ================================================================= 
+// 6 :: Our Barista's Section
+// =================================================================
+.our-barista_section{
+    width: 100%;
+    background-color: none;
+    padding:0 0 8rem 0;
+    .divider-start{
+        width: 100%;
+        position: relative;    padding-bottom: 2rem;
+        img{
+            width: 100%;
+            height: 50px;
+            top: -40px;
+            position: absolute;
+            left: 0;
+        }
+    }
+    .our-barista_title {
+        font-family: 'Kalam', sans-serif;
+        text-align: center;
+        h1 {
+          color: white;
+          font-size: 3rem;
+          letter-spacing: 5px;
+        }
+        span {
+          color: white;
+          font-size: 2rem;
+          position: relative;
+          i {
+            font-size: 3rem;
+            color: rgb(180, 110, 0);
+            
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 2px;
+            background-color: #fff;
+            left: -10rem;
+            top: 35%;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 2px;
+            background-color: #fff;
+            right: -10rem;
+            top: 35%;
+          }
+        }
+      }
+    
+    .our-barista_container{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 20rem);
+        row-gap: 6rem;
+        column-gap: 3rem;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding: 2rem 0;
+        
+        .barista{
+            height: 100%;
+            max-height: 400px;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+            h1{
+                color: white;
+                font-size: 2rem;
+                letter-spacing: .5rem;
+            }
+            p{
+                font-size: 1rem;
+                color: #acacac;
+                letter-spacing:1.5px;
+            }
+        }
+        #barista1{
+            &:hover{
+                transform: perspective(800px) rotateY(-20deg);
+                transition: .5s ease;
+            }
+        }
+        #barista2{
+            &:hover{
+                transform: perspective(800px) rotateY(10deg);
+                transition: .5s ease;
+            }
+        }
+        #barista3{
+            &:hover{
+                transform: perspective(800px) rotateY(20deg);
+                transition: .5s ease;
+            }
+        }
+        #barista4{
+            &:hover{
+                transform: perspective(800px) rotateY(-10deg);
+                transition: .5s ease;
+            }
+        }
+
+    }
+}
+
+//-------------------------------
+// 6.5 :: Our Barista's Responsive
+//-------------------------------
+@media screen and(max-width:980px) {
+    .barista{
+        text-align: center;
+    }
+}
+
+// ================================================================= 
+// 7 :: Contact Section
+// =================================================================
+.contact_section{
+    padding-bottom: 5rem;
+    .contact_container{
+        padding: 2rem 1rem;
+        /*display: grid;
+         grid-template-columns: repeat(auto-fit, 28rem); */
+         display: flex;
+        gap: 1rem;
+        background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('images/2_bg.jpg') center/cover no-repeat;
+        box-shadow: 0 0 10px 5px rgba(255,255,255, 0.5);
+        align-items: center;
+        justify-content: space-evenly;
+        border-radius: 15px;
+        .contacts{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 1rem;
+            i{
+                color: rgb(180, 110, 0);
+                font-size: 3rem;
+            }
+            h1{
+                color: #1f1f1f;
+                font-size: 2rem;
+            }
+            p{
+                color: #1f1f1f;
+                font-size: 1.3rem;
+                span{
+                    color: rgb(180, 110, 0);
+                }
+            }
+        }
+        #location{
+
+        }
+        #hours{
+            padding: 1rem 5rem;
+            border-left: 2px solid #0f0f0f;
+            border-right: 2px solid #0f0f0f;
+        }
+        #contactsstore{
+
+        }
+    }
+}
+
+//-------------------------------
+// 7.5 :: Contact Responsive
+//-------------------------------
+@media screen and (max-width:1030px) {
+        .contacts{
+            border: none!important;
+            p{
+                font-size: 1rem!important;
+            }
+        }
+}
+@media screen and (max-width:980px) {
+    .contact_container{
+        flex-direction: column;
+        .contacts{
+            border: none!important;
+            font-size: 1.3rem!important;
+        }
+    }
+}
+
+// ================================================================= 
+// 8 :: Footer Section
+// =================================================================
+footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 5rem;
+    .footer_container{
+        width: 100%;
+        padding: 8rem 2rem;
+        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,.4)), url('images/hero.jpg') center/cover fixed no-repeat;
+        .footer-contents{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            h2{
+                font-size: 3rem;
+                padding:0 1rem;
+                color: white;
+                font-family: 'Abel', sans-serif;
+            }
+            p{
+                line-height: 3rem;
+                color: #d5d5d5;
+                font-size: 1rem;
+            }
+        }
+    }
+    .sub-footer{
+        width: 100%;
+        height: auto;
+        background-color: #0f0f0f;
+        padding: 1rem;
+        .sub-footer_contents{
+            display: flex;
+            align-items: center;
+            h3{
+                font-size: 1rem;
+                color: white;
+            }  
+        }
+    }
+}
+//-------------------------------
+// 8.5 :: Contact Responsive
+//-------------------------------
