@@ -928,13 +928,16 @@ footer .sub-footer {
   width: 100%;
   height: auto;
   background-color: #0f0f0f;
-  padding: 1rem;
+  padding: 0.8rem 1rem;
 }
 footer .sub-footer .sub-footer_contents {
   display: flex;
   align-items: center;
 }
 footer .sub-footer .sub-footer_contents h3 {
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: white;
+}
+footer .sub-footer .sub-footer_contents h3 span {
+  color: rgb(180, 110, 0);
 }/*# sourceMappingURL=style.css.map */
