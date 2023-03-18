@@ -45,6 +45,9 @@
     list-style: none;
     text-decoration: none;
 }
+html{
+    scroll-behavior: smooth;
+}
 
 .inside{
     max-width: 1440px;
