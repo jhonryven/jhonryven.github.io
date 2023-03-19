@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: main.js
+Disallow: style.css
+Disallow: style.css.map
+Disallow: style.scss
+Disallow: /images
