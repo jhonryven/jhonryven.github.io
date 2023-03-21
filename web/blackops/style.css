@@ -24,6 +24,10 @@
   margin: 0 auto;
 }
 
+html {
+  scroll-behavior: smooth !important;
+}
+
 body {
   font-family: "Abel", sans-serif;
   background: url("images/about_bg.jpg") center/cover fixed no-repeat;
