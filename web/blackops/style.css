@@ -184,7 +184,7 @@ header .header_container .burgerbars a {
     position: fixed;
   }
   header .header_container nav .nav_menu {
-    width: 40%;
+    width: 50%;
     height: 101vh;
     position: absolute;
     flex-direction: column;
