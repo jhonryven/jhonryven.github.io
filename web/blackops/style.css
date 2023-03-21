@@ -529,7 +529,7 @@ footer .sub-footer .sub-footer_contents h3 {
   }
   .our-coffee_contents .coffee-contents li p {
     padding: 0 0rem !important;
-    text-align: justify !important;
+    text-align: center !important;
   }
   .our-coffee_contents #coffee-contents_left {
     order: 2 !important;
@@ -857,12 +857,40 @@ footer .sub-footer .sub-footer_contents h3 {
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("images/menu14.jpg") center/cover no-repeat;
 }
 
+@media screen and (max-width: 1070px) {
+  .specials_container {
+    grid-template: "num1 num2" "num3 num3";
+  }
+  #specials1 {
+    grid-area: num1;
+  }
+  #specials2 {
+    grid-area: num2;
+  }
+  #specials3 {
+    grid-area: num3;
+  }
+}
 @media screen and (max-width: 980px) {
   .specials_title h1 {
     line-height: 3rem !important;
   }
   .specials_title span {
     -webkit-filter: drop-shadow(0 0 5px white);
+  }
+}
+@media screen and (max-width: 660px) {
+  .specials_container {
+    grid-template: "num1" "num2" "num3";
+  }
+  #specials1 {
+    grid-area: num1;
+  }
+  #specials2 {
+    grid-area: num2;
+  }
+  #specials3 {
+    grid-area: num3;
   }
 }
 .our-barista_section {

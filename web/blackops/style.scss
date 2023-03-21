@@ -605,7 +605,7 @@ footer{
                 }
                 p {
                     padding: 0 0rem!important;
-                   text-align: justify!important;
+                   text-align: center!important;
                 }
               }
         }
@@ -981,6 +981,20 @@ footer{
 //-------------------------------
 // 5.5 - Specials Responsive
 //-------------------------------
+@media screen and (max-width:1070px) {
+    .specials_container{
+        grid-template: "num1 num2""num3 num3";
+    }
+    #specials1{
+        grid-area: num1;
+    }
+    #specials2{
+        grid-area: num2;
+    }
+    #specials3{
+        grid-area: num3;
+    }
+}
 @media screen and (max-width:980px) {
     .specials_title{
         h1{
@@ -989,6 +1003,20 @@ footer{
         span{
             -webkit-filter: drop-shadow(0 0 5px white);
         }
+    }
+}
+@media screen and (max-width:660px) {
+    .specials_container{
+        grid-template: "num1" "num2" "num3";
+    }
+    #specials1{
+        grid-area: num1;
+    }
+    #specials2{
+        grid-area: num2;
+    }
+    #specials3{
+        grid-area: num3;
     }
 }
 
