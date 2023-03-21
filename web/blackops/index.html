@@ -321,17 +321,19 @@
     </footer>
 </body>
 <script>
-    let menu = document.querySelector("#menu-bar");
-    let navbar = document.querySelector(".nav_menu");
+    const $menuglow = $("#menu-bar");
+    const $navbar = $(".nav_menu");
+    
+    $($menuglow).click(()=>{
+        $menuglow.toggleClass('fa-times');
+        $navbar.toggleClass('nav-toggle');
+    }); 
 
-    menu.addEventListener("click", () => {
-        menu.classList.toggle("fa-times");
-        navbar.classList.toggle("nav-toggle");
+    $(window).scroll(() => {
+        $menuglow.toggleClass("glow", $(window).scrollTop() !== 0);
+        $menuglow.removeClass("fa-times");
+        $navbar.removeClass('nav-toggle');
+        
     });
-
-    window.onscroll = () => {
-        menu.classList.remove("fa-times");
-        navbar.classList.remove("nav-toggle");
-    };
 </script>
 </html>
