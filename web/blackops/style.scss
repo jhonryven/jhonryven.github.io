@@ -1007,7 +1007,7 @@ footer{
 }
 @media screen and (max-width:660px) {
     .specials_container{
-        grid-template: "num1 num1" "num2 num2" "num3 num3";
+        grid-template: "num1" "num2" "num3";
     }
     #specials1{
         grid-area: num1;
