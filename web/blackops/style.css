@@ -876,7 +876,7 @@ footer .sub-footer .sub-footer_contents h3 {
     line-height: 3rem !important;
   }
   .specials_title span {
-    -webkit-filter: drop-shadow(0 0 5px white);
+    -webkit-filter: drop-shadow(0 0 3px black);
   }
 }
 @media screen and (max-width: 660px) {
