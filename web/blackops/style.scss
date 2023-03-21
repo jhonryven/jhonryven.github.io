@@ -4,7 +4,7 @@
 // ===================================================================
 // Table of Contents
 // 
-// 0 -  Fonts & Global Styles
+// 0.0 - Fonts & Global Styles
 //      0.5 - Header Responsive
 // 1.0 - Hero Section
 //      1.5 - Hero Section Responsive
@@ -18,10 +18,12 @@
 //      5.5 - Specials Responsive
 // 6.0 - Our Barista's Section
 //      6.5 - Our Barista's Responsive
-// 7.0 - Footer
-//      7.5 - Sub Footer
+// 7.0 - Contact Section
+//      7.5 - Contact Responsive
 // ================================================================= 
-// 0 :: Fonts & Global Styles
+
+// ===================================================================
+// 0.0 - Fonts & Global Styles
 // =================================================================
 
 /*==== Fonts ====*/
@@ -45,9 +47,6 @@
     list-style: none;
     text-decoration: none;
 }
-html{
-    scroll-behavior: smooth!important;
-}
 
 .inside{
     max-width: 1440px;
@@ -58,6 +57,7 @@ body{
     font-family:'Abel', sans-serif;
     background: url('images/about_bg.jpg') center/cover fixed no-repeat;
 }
+
 .divider-start{
     width: 100%;
     position: relative;
@@ -69,6 +69,7 @@ body{
         left: 0;
     }
 }
+
 .divider-end{
     width: 100%;
     position: relative;
@@ -81,6 +82,7 @@ body{
         transform: scaleY(-1);
     }
 }
+
 #bg-video {
     position: absolute;
     top: 0;
@@ -90,6 +92,16 @@ body{
     object-fit: cover;
     z-index: -1;
   }
+
+.nav-toggle{
+    /* FROM TOP
+     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)!important; */
+     // FROM RIGHT SIDE
+     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)!important;
+}
+.glow{
+    filter: drop-shadow(0 0 5px white);
+}
 
 //-------------------------------
 // Header Section
@@ -108,11 +120,13 @@ header{
        align-items: center;
        position: relative;
         nav{
+            z-index: 3;
             ul{
                 display: flex;
                 gap: 1rem;
                 li{
                     a{
+                        display: inline-block;
                         color: white;
                         text-transform: uppercase;
                         font-weight: 500;
@@ -120,6 +134,12 @@ header{
                         cursor: pointer;
                         width: 100%;
                         height: 100%;
+                    }
+                    &:hover{
+                        border-bottom: 1px solid rgb(180, 110, 0);
+                        a{
+                            color: rgb(180, 110, 0);
+                        }
                     }
                 }
             }
@@ -133,7 +153,7 @@ header{
             text-align: center;
             top: -20px;
             width: 100%;
-    
+            z-index: 2;
             img{
                 width: 130px;
                 filter: drop-shadow(0 0 5px white);
@@ -163,6 +183,7 @@ header{
         .burgerbars{
             position: relative;
             display: none;
+            z-index: 100;
             width: 100%;
             justify-content: flex-end;
             a{
@@ -176,9 +197,76 @@ header{
 }
 
 //-------------------------------
-// Header Responsive
+// 0.5 - Header Responsive
 //-------------------------------
 @media screen and (max-width:1280px) {
+    .nav_menu{
+        li{
+            a{
+                font-size: 1rem;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    header {
+        padding: 1.5rem 0!important;
+        z-index: 999;
+        .header_container{
+            width: 100%!important;
+            .header_logo {
+                position: absolute!important;
+                top: -8px!important;
+                img{
+                    width: 100px!important;
+                }
+            }  
+            nav{
+                width: 100%;
+                position: fixed;
+                .nav_menu{
+                    width: 40%;
+                    height: 101vh;
+                    position: absolute;
+                    flex-direction: column;
+                    top: -41px;
+                    right: 0%;
+                    padding: 8rem 0!important;
+                    box-shadow: inset 10px 0px 20px -20px white;
+                    background: rgba(15,15,15,0.6);
+                    -webkit-backdrop-filter: blur(20px);
+                    backdrop-filter: blur(20px);
+                    //from right side
+                    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+                    /* from top
+                    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); */
+                    gap: 0!important;
+                    li{
+                        text-align: right;
+                        a{
+                            padding: 1rem;
+                            font-size: 1.7rem;
+                            
+                            &:hover{
+                                background-color: rgb(180, 110, 0,0.5);
+                            }
+                        }
+                    }
+                }
+            }
+            .header_contacts{
+                visibility: hidden;
+            }
+            .burgerbars{
+                position: fixed!important;
+                display: flex!important;
+                position: absolute;
+                right: 20px;
+            }
+        }
+    }
+}
+@media screen and (max-width:300px) {
     .nav_menu{
         li{
             a{
@@ -188,29 +276,57 @@ header{
     }
 }
 
-@media screen and (max-width: 1024px) {
-    header {
-        padding: 1.5rem;
-
-        nav,.header_contacts {
-            display: none !important;
-        }
-
-        .header_logo {
-            position: absolute!important;
-            top: -8px!important;
-            img{
-                width: 100px!important;
+//-------------------------------
+// Footer Section
+//-------------------------------
+footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 5rem;
+    .footer_container{
+        width: 100%;
+        padding: 8rem 2rem;
+        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,.4)), url('images/hero.jpg') center/cover fixed no-repeat;
+        .footer-contents{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            h2{
+                font-size: 3rem;
+                padding:0 1rem;
+                color: white;
+                font-family: 'Abel', sans-serif;
+            }
+            p{
+                line-height: 3rem;
+                color: #d5d5d5;
+                font-size: 1rem;
             }
         }
-        .burgerbars{
-            display: flex!important;
+    }
+    .sub-footer{
+        width: 100%;
+        height: auto;
+        background-color: #0f0f0f;
+        padding: 1rem;
+        .sub-footer_contents{
+            display: flex;
+            align-items: center;
+            h3{
+                font-size: 1rem;
+                color: white;
+            }  
         }
     }
 }
 
 // ================================================================= 
-// 1 :: Hero Section
+// 1.0 - Hero Section
 // =================================================================
 .hero_section{
     background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,0.5));
@@ -265,9 +381,9 @@ header{
 }
 
 //-------------------------------
-// 1.5 :: Hero Responsive
+// 1.5 - Hero Section Responsive
 //-------------------------------
-@media screen and(max-width:980px) {
+@media screen and (max-width:980px) {
     .hero_contents{
         text-align: center;
         align-items: center!important;
@@ -295,9 +411,29 @@ header{
         }
     }
 }
+@media screen and (max-width:370px) {
+    .hero_buttons{
+        gap: .8rem!important;
+        .herobtn{
+            padding: .8rem 1.3rem!important;
+            font-size: 1rem!important;
+            letter-spacing: 2px!important;
+        }
+    }
+}
+@media screen and (max-width:300px) {
+    .hero_buttons{
+        flex-direction: column!important;
+        .herobtn{
+            padding: 1rem 1.5rem!important;
+            font-size: 1rem!important;
+            letter-spacing: 2px!important
+        }
+    }
+}
 
 // ================================================================= 
-// 2 :: Our Coffee Section
+// 2.0 - Our Coffee Section
 // =================================================================
 .our-coffee_section {
     background: url("images/about_bg.jpg") center / cover no-repeat;
@@ -383,7 +519,7 @@ header{
             }
             p {
                 color: #acacac;
-              font-size: 1rem;
+              font-size: 1.5rem;
               word-break: break-all;
             }
           }
@@ -420,14 +556,14 @@ header{
   }
 
 //-------------------------------
-// 2.5 :: Our Coffee Responsive
+// 2.5 - Our Coffee Section Responsive
 //-------------------------------
-@media screen and(max-width:1280px){
+@media screen and (max-width:1280px){
     .coffee-contents{
         gap: 1rem!important;
     }
 }
-@media screen and(max-width:1024px){
+@media screen and (max-width:1024px){
     .title-icon{
         &::before{
             width: 115px!important;
@@ -479,7 +615,7 @@ header{
 }
 
 // ================================================================= 
-// 3 :: About Section
+// 3.0 - About Section
 // =================================================================
 .about_section {
     width: 100%;
@@ -601,7 +737,7 @@ header{
 }
 
 //-------------------------------
-// 3.5 :: About Responsive
+// 3.5 - About Section Responsive
 //-------------------------------
 @media screen and (max-width: 1280px){
     .about_section {
@@ -636,7 +772,7 @@ header{
 }
 
 // ================================================================= 
-// 4 :: Menu Section
+// 4 :: 4.0 - Menu Section
 // =================================================================
 .menu_section{
     background: #0f0f0f;
@@ -742,9 +878,9 @@ header{
 }
 
 //-------------------------------
-// 4.5 :: Menus Responsive
+// 4.5 - Menu Section Responsive
 //-------------------------------
-@media screen and(max-width:1280px) {
+@media screen and (max-width:1280px) {
     .menu_category{
         ul{
             gap: 1rem !important;
@@ -758,7 +894,7 @@ header{
 }
 
 // ================================================================= 
-// 5 :: Specials Section
+// 5.0 - Specials Section
 // =================================================================
 .specials_section{
     width: 100%;
@@ -839,9 +975,9 @@ header{
 }
 
 //-------------------------------
-// 5.5 :: Specials Responsive
+// 5.5 - Specials Responsive
 //-------------------------------
-@media screen and(max-width:980px) {
+@media screen and (max-width:980px) {
     .specials_title{
         h1{
             line-height: 3rem!important;
@@ -853,7 +989,7 @@ header{
 }
 
 // ================================================================= 
-// 6 :: Our Barista's Section
+// 6.0 - Our Barista's Section
 // =================================================================
 .our-barista_section{
     width: 100%;
@@ -966,24 +1102,26 @@ header{
 }
 
 //-------------------------------
-// 6.5 :: Our Barista's Responsive
+// 6.5 - Our Barista's Responsive
 //-------------------------------
-@media screen and(max-width:980px) {
+@media screen and (max-width:980px) {
     .barista{
         text-align: center;
     }
 }
 
 // ================================================================= 
-// 7 :: Contact Section
+// 7.0 - Contact Section
 // =================================================================
 .contact_section{
     padding-bottom: 5rem;
     .contact_container{
         padding: 2rem 1rem;
-        display: flex;
+        /*display: grid;
+         grid-template-columns: repeat(auto-fit, 28rem); */
+         display: flex;
         gap: 1rem;
-        background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('images/2_bg.jpg') center/cover fixed no-repeat;
+        background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('images/2_bg.jpg') center/cover no-repeat;
         box-shadow: 0 0 10px 5px rgba(255,255,255, 0.5);
         align-items: center;
         justify-content: space-evenly;
@@ -1026,7 +1164,7 @@ header{
 }
 
 //-------------------------------
-// 7.5 :: Contact Responsive
+// 7.5 - Contact Responsive
 //-------------------------------
 @media screen and (max-width:1030px) {
         .contacts{
@@ -1042,58 +1180,6 @@ header{
         .contacts{
             border: none!important;
             font-size: 1.3rem!important;
-        }
-    }
-}
-
-// ================================================================= 
-// 8 :: Footer Section
-// =================================================================
-footer{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 5rem;
-    .footer_container{
-        width: 100%;
-        padding: 8rem 2rem;
-        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,.4)), url('images/hero.jpg') center/cover fixed no-repeat;
-        .footer-contents{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-            h2{
-                font-size: 3rem;
-                padding:0 1rem;
-                color: white;
-                font-family: 'Abel', sans-serif;
-            }
-            p{
-                line-height: 3rem;
-                color: #d5d5d5;
-                font-size: 1rem;
-            }
-        }
-    }
-    .sub-footer{
-        width: 100%;
-        height: auto;
-        background-color: #0f0f0f;
-        padding: .8rem 1rem;
-        .sub-footer_contents{
-            display: flex;
-            align-items: center;
-            h3{
-                font-size: .8rem;
-                color: white;
-                span{
-                    color: rgb(180, 110, 0);
-                }
-            }  
         }
     }
 }
