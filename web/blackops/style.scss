@@ -18,6 +18,9 @@
 //      5.5 - Specials Responsive
 // 6.0 - Our Barista's Section
 //      6.5 - Our Barista's Responsive
+// 7.0 - Contacts Section
+//      7.5 - Contacts Responsive\
+// 8.0 - Footer Section
 // ================================================================= 
 
 // ===================================================================
@@ -1210,7 +1213,7 @@ header{
          grid-template-columns: repeat(auto-fit, 28rem); */
          display: flex;
         gap: 1rem;
-        background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('images/2_bg.jpg') center/cover fixed no-repeat;
+        background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('images/2_bg.jpg') center/cover no-repeat;
         box-shadow: 0 0 10px 5px rgba(255,255,255, 0.5);
         align-items: center;
         justify-content: space-evenly;
@@ -1330,61 +1333,3 @@ footer{
 //-------------------------------
 // 8.5 :: Contact Responsive
 //-------------------------------
-
-.gallery {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .filter {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .btn {
-    padding: 10px 20px;
-    margin-right: 10px;
-    border: none;
-    background-color: #eee;
-    color: #333;
-    cursor: pointer;
-  }
-  
-  .btn.active1 {
-    background-color: #333;
-    color: #fff;
-  }
-  
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-  }
-  
-  .item {
-    position: relative;
-  }
-  
-  .item img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  .item:before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
-    opacity: 1;
-    transition: opacity 0.3s ease;
-  }
-  
-  .item:hover:before {
-    opacity: 0;
-  }
