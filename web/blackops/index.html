@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,16 +16,17 @@
     <link href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro-v6/44659d9/css/all.css" rel="stylesheet"
     type="text/css" /> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script>history.scrollRestoration = "manual";</script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="main.js"></script>
     <title>Black Ops Cafe | Feel Cozy and Relax</title>
 </head>
+
 <body>
     <!-- Header -->
-    <header id="header-section">
+    <header>
         <div class="header_container inside">
             <nav>
-                <ul class="nav_menu">
+                <ul class="nav_menu animate__animated animate__bounceInLeft">
                     <li><a href="#header-section">home</a></li>
                     <li><a href="#about-section">about</a></li>
                     <li><a href="#menu-section">menu</a></li>
@@ -34,22 +36,26 @@
                 </ul>
             </nav>
 
-            <div href="" class="header_logo">
-                <img src="images/logo.png" alt="logo">
+            <div href="" class="header_logo animate__animated animate__bounceInDown">
+                <img src="images/logo.png" alt="">
             </div>
 
-            <div class="header_contacts">
+            <div class="header_contacts animate__animated animate__bounceInRight">
                 <ul>
                     <li><a href="#" class="fa-brands fa-facebook"></a></li>
                     <li><a href="#" class="fa-brands fa-twitter"></a></li>
                     <li><a href="#" class="fa-brands fa-instagram"></a></li>
-                    <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 6.0.0-alpha2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.91,178.82,576,127.58H471.66a326.11,326.11,0,0,0-367,0H0l47.09,51.24A143.911,143.911,0,0,0,241.86,390.73L288,440.93l46.11-50.17A143.94,143.94,0,0,0,575.88,285.18h-.03A143.56,143.56,0,0,0,528.91,178.82ZM144.06,382.57a97.39,97.39,0,1,1,97.39-97.39A97.39,97.39,0,0,1,144.06,382.57ZM288,282.37c0-64.09-46.62-119.08-108.09-142.59a281,281,0,0,1,216.17,0C334.61,163.3,288,218.29,288,282.37Zm143.88,100.2h-.01a97.405,97.405,0,1,1,.01,0ZM144.06,234.12h-.01a51.06,51.06,0,1,0,51.06,51.06v-.11A51,51,0,0,0,144.06,234.12Zm287.82,0a51.06,51.06,0,1,0,51.06,51.06A51.06,51.06,0,0,0,431.88,234.12Z"/></svg></a></li>
+                    <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 576 512"><!-- Font Awesome Free 6.0.0-alpha2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->
+                                <path
+                                    d="M528.91,178.82,576,127.58H471.66a326.11,326.11,0,0,0-367,0H0l47.09,51.24A143.911,143.911,0,0,0,241.86,390.73L288,440.93l46.11-50.17A143.94,143.94,0,0,0,575.88,285.18h-.03A143.56,143.56,0,0,0,528.91,178.82ZM144.06,382.57a97.39,97.39,0,1,1,97.39-97.39A97.39,97.39,0,0,1,144.06,382.57ZM288,282.37c0-64.09-46.62-119.08-108.09-142.59a281,281,0,0,1,216.17,0C334.61,163.3,288,218.29,288,282.37Zm143.88,100.2h-.01a97.405,97.405,0,1,1,.01,0ZM144.06,234.12h-.01a51.06,51.06,0,1,0,51.06,51.06v-.11A51,51,0,0,0,144.06,234.12Zm287.82,0a51.06,51.06,0,1,0,51.06,51.06A51.06,51.06,0,0,0,431.88,234.12Z" />
+                            </svg></a></li>
                     <li><a href="#">(+49)123-4567 <i class="fa-solid fa-phone-alt"></i></a></li>
                 </ul>
             </div>
 
             <div class="burgerbars">
-                <a class="fa-regular fa-bars" id="menu-bar""></a>
+                <a class="fa-regular fa-bars" id="menu-bar"></a>
             </div>
         </div>
 
@@ -57,27 +63,29 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero_section" id="hero-section">
-            <video id="bg-video" autoplay loop muted>
+    <section class="hero_section">
+        <video id="bg-video" autoplay loop muted>
             <source src="images/videoBG.mp4" type="video/mp4">
-          </video>
-       <div class="hero_contents inside">
-            <h1 class="animate__animated animate__slideInLeft">100% Organic Local <span>Coffee</span></h1>
-            <p class="animate__animated animate__slideInLeft">Healthy & Tasty</p>
-            <div class="hero_buttons animate__animated animate__fadeInLeft">
-                <input type="button" value="book now" class="herobtn" id="btnbooknow">
-                <input type="button" value="view menu" class="herobtn" id="btnviewnow">
+        </video>
+        <div class="hero_contents inside">
+            <h1 class="animate__animated animate__lightSpeedInLeft">100% Organic Local <span>Coffee</span></h1>
+            <p class="animate__animated animate__lightSpeedInLeft">Healthy & Tasty</p>
+            <div class="hero_buttons">
+                <input type="button" value="book now" class="herobtn animate__animated animate__fadeInUp"
+                    id="btnbooknow">
+                <input type="button" value="view menu" class="herobtn animate__animated animate__fadeInUp"
+                    id="btnviewnow">
             </div>
-       </div>
+        </div>
     </section>
-      
+
     <!-- Our Coffee Section -->
-    <section class="our-coffee_section" id="our-coffee-section">
+    <section class="our-coffee_section">
         <div class="divider-start">
-           <img src="images/3.png" alt="divider-start">
+            <img src="images/3.png" id="ourcoffee_img" alt="divider-start">
         </div>
 
-       
+
         <div class="our-coffee_container">
             <div class="our-coffee_title">
                 <h1>The Coffee</h1>
@@ -86,56 +94,71 @@
 
             <div class="our-coffee_contents inside">
                 <div class="coffee-contents_image">
-                    <img class="animate__animated animate__backInUp" src="images/test.jpg.png" alt="coffee-product"> 
+                    <img src="images/test.jpg.png" class="hidden-above" id="product-image" alt="coffee-product">
                     <!-- <img src="https://i.pinimg.com/originals/f1/34/8e/f1348ef41147a2d398f9a152d079e4c6.png" alt="coffee-product"> -->
                 </div>
+
                 <ul class="coffee-contents" id="coffee-contents_left">
-                    <li>
+                    <li id="content-list_left" class="hidden-left">
                         <i class="fa-solid fa-coffee-pot"></i>
                         <h3>THE MOKA POT</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi quae doloremque fuga earumisi r ad error in hic excepturi, atqrrdue isi consequuntur rem?</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi quae doloremque fuga earumisi
+                            r ad error in hic excepturi, atqrrdue isi consequuntur rem?</p>
                     </li>
-                    <li>
+                    <li id="content-list_left" class="hidden-left">
                         <i class="fa-solid fa-mug-hot"></i>
                         <h3>THE PERFECT CUP</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi quae doloremque fuga earumisi r ad error in hic excepturi, atqrrdue isi consequuntur rem?</p></li>
-                    <li>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi quae doloremque fuga earumisi
+                            r ad error in hic excepturi, atqrrdue isi consequuntur rem?</p>
+                    </li>
+                    <li id="content-list_left" class="hidden-left">
                         <i class="fa-solid fa-coffee-pot"></i>
                         <h3>SUPREME BEANS</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi quae doloremque fuga earumisi r ad error in hic excepturi, atqrrdue isi consequuntur rem?</p></li>
-                    <li>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi quae doloremque fuga earumisi
+                            r ad error in hic excepturi, atqrrdue isi consequuntur rem?</p>
+                    </li>
+                    <li id="content-list_left" class="hidden-left">
                         <i class="fa-solid fa-coffee-beans"></i>
                         <h3>THE COFEE MACHINE</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi quae doloremque fuga earumisi r ad error in hic excepturi, atqrrdue isi consequuntur rem?</p></li>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi quae doloremque fuga earumisi
+                            r ad error in hic excepturi, atqrrdue isi consequuntur rem?</p>
+                    </li>
                 </ul>
                 <ul class="coffee-contents" id="coffee-contents_right">
-                    <li>
+                    <li id="content-list_right" class="hidden-right">
                         <i class="fa-solid fa-coffee-pot"></i>
                         <h3>THE MOKA POT</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi quae doloremque fuga earumisi r ad error in hic excepturi, atqrrdue isi consequuntur rem?</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi quae doloremque fuga earumisi
+                            r ad error in hic excepturi, atqrrdue isi consequuntur rem?</p>
                     </li>
-                    <li>
+                    <li id="content-list_right" class="hidden-right">
                         <i class="fa-solid fa-coffee-beans"></i>
                         <h3>THE PERFECT CUP</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi quae doloremque fuga earumisi r ad error in hic excepturi, atqrrdue isi consequuntur rem?</p></li>
-                    <li>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi quae doloremque fuga earumisi
+                            r ad error in hic excepturi, atqrrdue isi consequuntur rem?</p>
+                    </li>
+                    <li id="content-list_right" class="hidden-right">
                         <i class="fa-solid fa-coffee-pot"></i>
                         <h3>SUPREME BEANS</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi quae doloremque fuga earumisi r ad error in hic excepturi, atqrrdue isi consequuntur rem?</p></li>
-                    <li>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi quae doloremque fuga earumisi
+                            r ad error in hic excepturi, atqrrdue isi consequuntur rem?</p>
+                    </li>
+                    <li id="content-list_right" class="hidden-right">
                         <i class="fa-solid fa-mug-hot"></i>
                         <h3>THE COFEE MACHINE</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi quae doloremque fuga earumisi r ad error in hic excepturi, atqrrdue isi consequuntur rem?</p></li>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi quae doloremque fuga earumisi
+                            r ad error in hic excepturi, atqrrdue isi consequuntur rem?</p>
+                    </li>
                 </ul>
             </div>
         </div>
         <div class="divider-end">
-            <img src="images/4.png" alt="divider-end">
-         </div>
+            <img src="images/4.png" alt="">
+        </div>
     </section>
 
-    <!-- About Section -->    
-    <section class="about_section" id="about-section">
+    <!-- About Section -->
+    <section class="about_section">
         <div class="about_title">
             <h1>About Our Café</h1>
             <span class="title-icon"> <i class="fa-solid fa-coffee"></i></span>
@@ -143,20 +166,25 @@
 
         <div class="about_container inside">
             <div class="about-contents">
-                <h3>Welcome to our <span>café</span></h3>
-                <p>Our café is a warm and welcoming space, designed to make you feel right at home. We believe that great food and drinks should be accompanied by friendly service and a comfortable atmosphere. Our team is passionate about serving high-quality dishes made with fresh, locally-sourced ingredients.</p>
+                <h3 class="hidden-left">Welcome to our <span>café</span></h3>
+                <p class="hidden-left">Our café is a warm and welcoming space, designed to make you feel right at home. We believe that
+                    great food and drinks should be accompanied by friendly service and a comfortable atmosphere. Our
+                    team is passionate about serving high-quality dishes made with fresh, locally-sourced ingredients.
+                </p>
             </div>
-            <div class="about-image">
-                
+            <div class="about-image hidden-right">
+                <div class="about-image_container">
+
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Menu Section -->
-    <section class="menu_section" id="menu-section">
+    <section class="menu_section">
         <div class="divider-start">
             <img src="images/5.png" alt="divider-start">
-         </div>
+        </div>
 
         <div class="menu_container inside">
             <div class="menu_title">
@@ -166,80 +194,80 @@
 
             <div class="menu_category">
                 <ul>
-                    <li><a href="">Main dishes</a></li>
-                    <li><a href="" class="active">beverages</a></li>
-                    <li><a href="">dessert</a></li>
-                    <li><a href="">salads</a></li>
+                    <li><a class="menu_filter active" data-filter="all">All</a></li>
+                    <li><a class="menu_filter" data-filter="bevarages">beverages</a></li>
+                    <li><a class="menu_filter" data-filter="desserts">dessert</a></li>
+                    <li><a class="menu_filter" data-filter="salads">salads</a></li>
                 </ul>
             </div>
 
             <div class="menu_list">
-                <a href="#" class="menu" id="menu1">
-                    <img src="images/menu1.jpg" alt="menus">
+                <a href="#" class="menu hidden-below" id="menu1" data-filter="bevarages">
+                    <img src="images/menu8.jpg" alt="">
                     <h1>First Menu</h1>
                 </a>
 
-                <a href="#" class="menu" id="menu2">
-                    <img src="images/menu2.jpg" alt="menus">
+                <a href="#" class="menu hidden-below" id="menu2" data-filter="bevarages">
+                    <img src="images/menu2.jpg" alt="">
                     <h1>Second Menu</h1>
                 </a>
 
-                <a href="#" class="menu" id="menu3">
-                    <img src="images/menu3.jpg" alt="menus">
+                <a href="#" class="menu hidden-below" id="menu3" data-filter="beverages">
+                    <img src="images/menu3.jpg" alt="">
                     <h1>Third Menu</h1>
                 </a>
 
-                <a href="#" class="menu" id="menu4">
-                    <img src="images/menu4.jpg" alt="menus">
+                <a href="#" class="menu hidden-below" id="menu4" data-filter="desserts">
+                    <img src="images/desserts1.jpg" alt="">
                     <h1>Fourth Menu</h1>
                 </a>
 
-                <a href="#" class="menu" id="menu5">
-                   <img src="images/menu5.jpg" alt="menus">
-                   <h1>Fifth Menu</h1>
+                <a href="#" class="menu hidden-below" id="menu5" data-filter="desserts">
+                    <img src="images/desserts2.png" alt="">
+                    <h1>Fifth Menu</h1>
                 </a>
 
-                <a href="#" class="menu" id="menu6">
-                   <img src="images/menu6.jpg" alt="menus">
-                   <h1>Sixth Menu</h1>
+                <a href="#" class="menu hidden-below" id="menu6" data-filter="desserts">
+                    <img src="images/desserts3.jpg" alt="">
+                    <h1>Sixth Menu</h1>
                 </a>
 
-                <a href="#" class="menu" id="menu7">
-                    <img src="images/menu7.jpg" alt="menus">
+                <a href="#" class="menu hidden-below" id="menu7" data-filter="salads">
+                    <img src="images/salad1.jpg" alt="">
                     <h1>Seventh Menu</h1>
                 </a>
 
-                <a href="#" class="menu" id="menu8">
-                    <img src="images/menu8.jpg" alt="menus">
+                <a href="#" class="menu hidden-below" id="menu8" data-filter="salads">
+                    <img src="images/salad2.jpg" alt="">
                     <h1>Eight Menu</h1>
                 </a>
             </div>
         </div>
         <div class="divider-end">
-            <img src="images/6.png" alt="divider-end">
-         </div>
+            <img src="images/6.png" alt="">
+        </div>
     </section>
 
     <!-- Specials Section -->
-    <section class="specials_section" id="specials-section">
+    <section class="specials_section">
         <div class="specials_title">
             <h1>Today's Special</h1>
             <span>Fresh brewed drinks & delicious meals</span>
         </div>
         <div class="specials_container inside">
-            <div class="specials" id="specials1">
+            <div class="specials hidden-left" id="specials1">
                 <div class="specials-overlay">
                     <h1>Specials 1</h1>
                     <p>₱260.53</p>
                 </div>
             </div>
-            <div class="specials" id="specials2">
+            <div class="specials hidden-left" id="specials2">
                 <div class="specials-overlay">
                     <h1>Specials 2</h1>
                     <p>₱260.53</p>
                 </div>
             </div>
-            <div class="specials" id="specials3">
+            <div class="specials hidden-left" id="specials3">
                 <div class="specials-overlay">
                     <h1>Specials 3</h1>
                     <p>₱260.53</p>
@@ -249,53 +277,53 @@
     </section>
 
     <!-- Our Barista Section -->
-    <section class="our-barista_section" id="barista-section">
+    <section class="our-barista_section">
         <div class="divider-start">
             <img src="images/4.png" alt="divider-start">
-         </div>
-         <div class="our-barista_title">
+        </div>
+        <div class="our-barista_title">
             <h1>Meet our lovely Baristas</h1>
             <span class="title-icon"><i class="fa-duotone fa-users"></i></span>
         </div>
 
         <div class="our-barista_container inside">
-            <div class="barista" id="barista1">
+            <div class="barista hidden-below" id="barista1">
                 <img src="images/ourbarista.jpg" alt="barista-image">
                 <h1>John Doe</h1>
                 <p>Lorem ipsum dolor sit amet consectetur.</p>
             </div>
-            <div class="barista" id="barista2">
-                <img src="images/Untitled-2.png" alt="barista-image">
+            <div class="barista hidden-below" id="barista2">
+                <img src="images/ourbarista.jpg" alt="barista-image">
                 <h1>John Doe</h1>
                 <p>Lorem ipsum dolor sit amet consectetur.</p>
             </div>
-            <div class="barista" id="barista3">
-                <img src="images/dtr.png" alt="barista-image">
+            <div class="barista hidden-below" id="barista3">
+                <img src="images/ourbarista.jpg" alt="barista-image">
                 <h1>John Doe</h1>
                 <p>Lorem ipsum dolor sit amet consectetur.</p>
             </div>
-            <div class="barista" id="barista4">
-                <img src="images/pett.jpg" alt="barista-image">
+            <div class="barista hidden-below" id="barista4">
+                <img src="images/ourbarista.jpg" alt="barista-image">
                 <h1>John Doe</h1>
                 <p>Lorem ipsum dolor sit amet consectetur.</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section-->
-    <section class="contact_section" id="contact-section">
+    <!-- Contact -->
+    <section class="contact_section">
         <div class="contact_container inside">
-            <div class="contacts" id="location">
+            <div class="contacts hidden-left" id="location">
                 <i class="fa-regular fa-map-marked"></i>
                 <h1>Location</h1>
                 <p>#424 SPC Laguna, Philippines</p>
             </div>
-            <div class="contacts" id="hours">
+            <div class="contacts hidden-below" id="hours">
                 <i class="fa-duotone fa-business-time"></i>
                 <h1>Hours</h1>
-                <p>Open Everyday, 9:00 AM - 7:00 PM</p>
+                <p>Open 24/7, 9:00 AM - 7:00 PM</p>
             </div>
-            <div class="contacts" id="contactsstore">
+            <div class="contacts hidden-right" id="contactsstore">
                 <i class="fa-solid fa-phone"></i>
                 <h1>Contact Us</h1>
                 <div class="contact-info">
@@ -308,9 +336,9 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer_container ">
+        <div class="footer_container">
             <div class="footer-contents">
-                <h2>"It’s amazing how the world begins to change through <br>the eyes of a cup of coffee"</h2>
+                <h2>It’s amazing how the world begins to change through <br> the eyes of a cup of coffee.</h2>
                 <p>-Donna A. Favors</p>
             </div>
         </div>
@@ -321,20 +349,5 @@
         </div>
     </footer>
 </body>
-<script>
-    const $menuglow = $("#menu-bar");
-    const $navbar = $(".nav_menu");
-    
-    $($menuglow).click(()=>{
-        $menuglow.toggleClass('fa-times');
-        $navbar.toggleClass('nav-toggle');
-    }); 
-
-    $(window).scroll(() => {
-        $menuglow.toggleClass("glow", $(window).scrollTop() !== 0);
-        $menuglow.removeClass("fa-times");
-        $navbar.removeClass('nav-toggle');
-        
-    });
-</script>
+<script src="main.js"></script>
 </html>

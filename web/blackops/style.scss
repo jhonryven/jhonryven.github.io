@@ -1,5 +1,5 @@
 // 
-// Website Name: BLACK OPS KAPE
+// Cafe
 // Author : Jhon Ryven Bonsol
 // ===================================================================
 // Table of Contents
@@ -18,12 +18,10 @@
 //      5.5 - Specials Responsive
 // 6.0 - Our Barista's Section
 //      6.5 - Our Barista's Responsive
-// 7.0 - Contact Section
-//      7.5 - Contact Responsive
 // ================================================================= 
 
 // ===================================================================
-// 0.0 - Fonts & Global Styles
+// 0 :: Fonts & Global Styles
 // =================================================================
 
 /*==== Fonts ====*/
@@ -33,11 +31,11 @@
    font-family: 'Kalam', cursive; */
 
 /*==== Colors ====*/
-:root{
-    --dark-background:#0f0f0f;
+:root {
+    --dark-background: #0f0f0f;
 }
 
-*{
+* {
     margin: 0%;
     padding: 0%;
     border: 0;
@@ -48,24 +46,25 @@
     text-decoration: none;
 }
 
-.inside{
+html {
+    scroll-behavior: smooth !important;
+}
+
+.inside {
     max-width: 1440px;
     margin: 0 auto;
 }
 
-html{
-    scroll-behavior: smooth!important;
-}
-
-body{
-    font-family:'Abel', sans-serif;
+body {
+    font-family: 'Abel', sans-serif;
     background: url('images/about_bg.jpg') center/cover fixed no-repeat;
 }
 
-.divider-start{
+.divider-start {
     width: 100%;
     position: relative;
-    img{
+
+    img {
         width: 100%;
         height: 50px;
         top: -40px;
@@ -74,10 +73,11 @@ body{
     }
 }
 
-.divider-end{
+.divider-end {
     width: 100%;
     position: relative;
-    img{
+
+    img {
         width: 100%;
         height: 50px;
         bottom: -45px;
@@ -95,22 +95,75 @@ body{
     height: 110vh;
     object-fit: cover;
     z-index: -1;
-  }
-
-.nav-toggle{
-    /* FROM TOP
-     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)!important; */
-     // FROM RIGHT SIDE
-     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)!important;
-}
-.glow{
-    box-shadow: 0 0 5px white;
-    padding: .3rem .5rem;
-    font-size: 2rem!important;
-    border-radius: 5px;
-    background: #0f0f0f;
 }
 
+.filtershow {
+    display: block;
+}
+
+.active {
+    color: rgb(180, 110, 0)!important;
+    border-bottom: 1px solid rgb(180, 110, 0);
+}
+//-------------------------------
+// Transitions Animations
+//-------------------------------
+.show{
+   transform: translateX(0)!important;
+   transform: translateY(0)!important;
+   transform: scale(1)!important;
+   opacity: 1!important;
+}
+
+.hidden-left{
+    transform: translateX(-390px);
+    opacity:0;
+}
+
+.hidden-right{
+    transform: translateX(390px);
+    opacity:0;
+}
+
+.hidden-above{
+    transform: translateY(-330px);
+    opacity:0;
+}
+
+.hidden-below{
+    transform: translateY(130px);
+    opacity:0;
+}
+.pre-grow{
+    transform: scale(1);
+}
+//-------------------------------
+// Transitions Responsive
+//-------------------------------
+@media screen and (max-width:1024px) {
+    .hidden-left{
+        transform: translateX(-190px);
+        opacity:0;
+    }
+    
+    .hidden-right{
+        transform: translateX(190px);
+        opacity:0;
+    }
+    
+    .hidden-above{
+        transform: translateY(-100px);
+        opacity:0;
+    }
+    
+    .hidden-below{
+        transform: translateY(90px);
+        opacity:0;
+    }
+    .pre-grow{
+        transform: scale(1);
+    }
+}
 //-------------------------------
 // Header Section
 //-------------------------------
@@ -204,8 +257,23 @@ header{
     }
 }
 
+.nav-toggle{
+    /* FROM TOP
+     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)!important; */
+     // FROM RIGHT SIDE
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)!important;
+}
+.glow{
+    box-shadow: 0 0 5px white;
+    padding: .3rem .5rem;
+    font-size: 2rem!important;
+    border-radius: 5px;
+    background: #0f0f0f;
+}
+
+
 //-------------------------------
-// 0.5 - Header Responsive
+// Header Responsive
 //-------------------------------
 @media screen and (max-width:1280px) {
     .nav_menu{
@@ -284,59 +352,11 @@ header{
     }
 }
 
-//-------------------------------
-// Footer Section
-//-------------------------------
-footer{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 5rem;
-    .footer_container{
-        width: 100%;
-        padding: 8rem 2rem;
-        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,.4)), url('images/hero.jpg') center/cover fixed no-repeat;
-        .footer-contents{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-            h2{
-                font-size: 3rem;
-                padding:0 1rem;
-                color: white;
-                font-family: 'Abel', sans-serif;
-            }
-            p{
-                line-height: 3rem;
-                color: #d5d5d5;
-                font-size: 1rem;
-            }
-        }
-    }
-    .sub-footer{
-        width: 100%;
-        height: auto;
-        background-color: #0f0f0f;
-        padding: 1rem;
-        .sub-footer_contents{
-            display: flex;
-            align-items: center;
-            h3{
-                font-size: 1rem;
-                color: white;
-            }  
-        }
-    }
-}
-
 // ================================================================= 
-// 1.0 - Hero Section
+// 1 :: Hero Section
 // =================================================================
 .hero_section{
+//    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,0.5)), url('images/about1.jpg') center/cover fixed no-repeat;
     background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,0.5));
     height: 100vh;
     width: 100%;
@@ -351,7 +371,8 @@ footer{
             font-family: 'Abel', cursive;
             font-size: 5rem;
             color: white;
-            line-height: 5rem;           
+            line-height: 5rem;         
+            transition-delay: 200ms!important;
             span{
                 color: rgb(180, 110, 0);
             }
@@ -361,6 +382,7 @@ footer{
             font-weight: 500;
             font-size: 4rem;
             color: white;
+            transition-delay: 400ms!important;
         }
         .hero_buttons{
             display: flex;
@@ -376,10 +398,12 @@ footer{
                 letter-spacing: 3px;
             }
             #btnbooknow{
+                transition-delay: 600ms;
                 color: white;
                 background: none;
             }
             #btnviewnow{
+                transition-delay:800ms;
                 color: black;
                 background-color: white;
 
@@ -389,7 +413,7 @@ footer{
 }
 
 //-------------------------------
-// 1.5 - Hero Section Responsive
+// 1.5 :: Hero Responsive
 //-------------------------------
 @media screen and (max-width:980px) {
     .hero_contents{
@@ -441,12 +465,13 @@ footer{
 }
 
 // ================================================================= 
-// 2.0 - Our Coffee Section
+// 2 :: Our Coffee Section
 // =================================================================
 .our-coffee_section {
     background: url("images/about_bg.jpg") center / cover no-repeat;
     width: 100%;
     text-align: center;
+  
     .our-coffee_container {
       padding: 5rem 2rem;
       width: 100%;
@@ -492,14 +517,16 @@ footer{
         justify-content: center;
         gap: 2rem;
         grid-template-columns: repeat(3, 1fr);
-        position: relative;
+        position: relative;  overflow: hidden;
         .coffee-contents_image {
           order: 2;
           align-items: center;
           display: flex;
           justify-content: center;
+          position: relative;
           img {
-            width: 100%;
+            width: 100%;    
+            
             filter: drop-shadow(0px 0px 3px rgba(255, 255, 255));
             //-webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0.5) 100%);
           }
@@ -511,12 +538,15 @@ footer{
           flex-direction: column;
           justify-content: center;
           gap: 2rem;
+          
           li {
             display: flex;
             color: white;
             flex-wrap: wrap;
             justify-content: flex-start;
             align-items: center;
+       
+            
             h3 {
               font-size: 2rem;
               color: #fff;
@@ -527,11 +557,12 @@ footer{
             }
             p {
                 color: #acacac;
-              font-size: 1.2rem;
+              font-size: 1.5rem;
               word-break: break-all;
             }
           }
         }
+
         #coffee-contents_left {
           order: 1;
           li {
@@ -564,7 +595,7 @@ footer{
   }
 
 //-------------------------------
-// 2.5 - Our Coffee Section Responsive
+// 2.5 :: Our Coffee Responsive
 //-------------------------------
 @media screen and (max-width:1280px){
     .coffee-contents{
@@ -609,7 +640,7 @@ footer{
                 }
                 p {
                     padding: 0 0rem!important;
-                   text-align: center!important;
+                   text-align: justify!important;
                 }
               }
         }
@@ -623,7 +654,7 @@ footer{
 }
 
 // ================================================================= 
-// 3.0 - About Section
+// 3 :: About Section
 // =================================================================
 .about_section {
     width: 100%;
@@ -687,6 +718,8 @@ footer{
                 letter-spacing: 5px;
                 font-weight: 600;
                 text-align: left;
+                transition-delay: 300ms ;
+                opacity: 0;
                 span{
                     color: rgb(180, 110, 0);
                     position: relative;
@@ -707,6 +740,9 @@ footer{
                 text-indent: 3rem;
                 font-size: 1.5rem;
                 color: #2f2f2f;
+                transition-delay: 600ms;
+                opacity: 0;
+                animation-delay: 1s;
             }
 
         }
@@ -716,36 +752,43 @@ footer{
             align-items: center;
             justify-content: flex-end;
             position: relative;
-            background: url('images/about.jpg') center/cover no-repeat;
             height: 450px;
             max-height: 100%;
-            
-            &::before{
-                content: '';
+            transition-delay:300ms ;
+            opacity: 0;
+            &::before {
+                content: "";
                 padding: 10rem;
                 border: 5px solid rgb(180, 110, 0);
                 background-color: none;
                 position: absolute;
                 top: -50px;
                 right: -50px;
-                z-index: -1;
+                z-index: 1;
             }
-            &::after{
-                content: '';
+            
+           &::after {
+                content: "";
                 padding: 5rem;
-                border: 5px solid rgb(180, 110, 0, 0.5);
+                border: 5px solid rgba(180, 110, 0, 0.5);
                 background-color: none;
                 position: absolute;
                 bottom: -50px;
                 left: -50px;
-                z-index: -1;
+                z-index: -2;
+            }
+            .about-image_container{
+                background: url('images/about.jpg') center/cover no-repeat;
+                width: 100%;
+                height: 100%;
+                z-index: 99;
             }
         }
     }
 }
 
 //-------------------------------
-// 3.5 - About Section Responsive
+// 3.5 :: About Responsive
 //-------------------------------
 @media screen and (max-width: 1280px){
     .about_section {
@@ -780,7 +823,7 @@ footer{
 }
 
 // ================================================================= 
-// 4 :: 4.0 - Menu Section
+// 4 :: Menu Section
 // =================================================================
 .menu_section{
     background: #0f0f0f;
@@ -831,10 +874,6 @@ footer{
 
         .menu_category{
             padding-bottom: 2rem;
-            .active{
-                color: rgb(180, 110, 0);
-                border-bottom: 1px solid white;
-            }
             ul{
                 display: flex;
                 justify-content: center;
@@ -846,6 +885,10 @@ footer{
                         text-transform: uppercase;
                         font-size: 1.2rem;
                         padding-bottom: .3rem;
+                        cursor: pointer;
+                        &:hover{
+                            color:rgb(180, 110, 0);
+                        }
                     }
                 }
             }
@@ -886,7 +929,7 @@ footer{
 }
 
 //-------------------------------
-// 4.5 - Menu Section Responsive
+// 4.5 :: Menus Responsive
 //-------------------------------
 @media screen and (max-width:1280px) {
     .menu_category{
@@ -902,7 +945,7 @@ footer{
 }
 
 // ================================================================= 
-// 5.0 - Specials Section
+// 5 :: Specials Section
 // =================================================================
 .specials_section{
     width: 100%;
@@ -917,6 +960,7 @@ footer{
         }
         span{
             color: rgb(180, 110, 0);
+
             font-size: 1.2rem;
         }
     }
@@ -971,19 +1015,22 @@ footer{
             }
         }
         #specials1{
+            transition-delay: 200ms ;
             background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('images/menu13.jpg') center/cover no-repeat;
         }
         #specials2{
+            transition-delay: 400ms ;
             background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('images/menu11.jpg') center/cover no-repeat;
         }
         #specials3{
+            transition-delay: 600ms;
             background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('images/menu14.jpg') center/cover no-repeat;
         }
     }
 }
 
 //-------------------------------
-// 5.5 - Specials Responsive
+// 5.5 :: Specials Responsive
 //-------------------------------
 @media screen and (max-width:1070px) {
     .specials_container{
@@ -1025,7 +1072,7 @@ footer{
 }
 
 // ================================================================= 
-// 6.0 - Our Barista's Section
+// 6 :: Our Barista's Section
 // =================================================================
 .our-barista_section{
     width: 100%;
@@ -1033,7 +1080,8 @@ footer{
     padding:0 0 8rem 0;
     .divider-start{
         width: 100%;
-        position: relative;    padding-bottom: 2rem;
+        position: relative;    
+        padding-bottom: 2rem;
         img{
             width: 100%;
             height: 50px;
@@ -1110,26 +1158,30 @@ footer{
             }
         }
         #barista1{
+            transition-delay: 200ms;
             &:hover{
-                transform: perspective(800px) rotateY(-20deg);
+                transform: perspective(800px) rotateY(-20deg)!important;
                 transition: .5s ease;
             }
         }
         #barista2{
+            transition-delay: 400ms;
             &:hover{
-                transform: perspective(800px) rotateY(10deg);
+                transform: perspective(800px) rotateY(10deg)!important;
                 transition: .5s ease;
             }
         }
         #barista3{
+            transition-delay: 600ms;
             &:hover{
-                transform: perspective(800px) rotateY(20deg);
+                transform: perspective(800px) rotateY(20deg)!important;
                 transition: .5s ease;
             }
         }
         #barista4{
+            transition-delay: 800ms;
             &:hover{
-                transform: perspective(800px) rotateY(-10deg);
+                transform: perspective(800px) rotateY(-10deg)!important;
                 transition: .5s ease;
             }
         }
@@ -1138,7 +1190,7 @@ footer{
 }
 
 //-------------------------------
-// 6.5 - Our Barista's Responsive
+// 6.5 :: Our Barista's Responsive
 //-------------------------------
 @media screen and (max-width:980px) {
     .barista{
@@ -1147,10 +1199,11 @@ footer{
 }
 
 // ================================================================= 
-// 7.0 - Contact Section
+// 7 :: Contact Section
 // =================================================================
 .contact_section{
     padding-bottom: 5rem;
+    overflow: hidden;
     .contact_container{
         padding: 2rem 1rem;
         /*display: grid;
@@ -1186,21 +1239,22 @@ footer{
             }
         }
         #location{
-
+            transition-delay: 200ms;
         }
-        #hours{
+        #hours{ 
+            transition-delay: 400ms;
             padding: 1rem 5rem;
             border-left: 2px solid #0f0f0f;
             border-right: 2px solid #0f0f0f;
         }
         #contactsstore{
-
+             transition-delay: 600ms;
         }
     }
 }
 
 //-------------------------------
-// 7.5 - Contact Responsive
+// 7.5 :: Contact Responsive
 //-------------------------------
 @media screen and (max-width:1030px) {
         .contacts{
@@ -1219,3 +1273,118 @@ footer{
         }
     }
 }
+
+// ================================================================= 
+// 8 :: Footer Section
+// =================================================================
+footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 5rem;
+    .footer_container{
+        width: 100%;
+        padding: 8rem 2rem;
+        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,.4)), url('images/hero.jpg') center/cover fixed no-repeat;
+        .footer-contents{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            transform: scale(0);
+            transition-duration: 1s; 
+            h2{
+                font-size: 3rem;
+                padding:0 1rem;
+                color: white;
+                font-family: 'Abel', sans-serif;
+            }
+            p{
+                line-height: 3rem;
+                color: #d5d5d5;
+                font-size: 1rem;
+            }
+        }
+    }
+    .sub-footer{
+        width: 100%;
+        height: auto;
+        background-color: #0f0f0f;
+        padding: 1rem;
+        .sub-footer_contents{
+            display: flex;
+            align-items: center;
+            h3{
+                font-size: 1rem;
+                color: white;
+                span{
+                    color: rgb(180, 110, 0)!important;
+                }
+            }  
+        }
+    }
+}
+//-------------------------------
+// 8.5 :: Contact Responsive
+//-------------------------------
+
+.gallery {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .filter {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    background-color: #eee;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .btn.active1 {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+  
+  .item {
+    position: relative;
+  }
+  
+  .item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .item:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  .item:hover:before {
+    opacity: 0;
+  }
