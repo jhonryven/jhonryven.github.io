@@ -292,7 +292,7 @@ header .header_container .burgerbars a {
   }
 }
 .hero_section {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("images/about1.jpg") center/cover fixed no-repeat;
   height: 100vh;
   width: 100%;
   padding: 0 1rem;
