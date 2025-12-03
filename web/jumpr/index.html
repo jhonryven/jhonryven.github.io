@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Jump Rope Time Table</title>
+<style>
+  :root{
+    --glass-bg: rgba(255,255,255,0.08);
+    --glass-border: rgba(255,255,255,0.12);
+    --accent: rgba(255,255,255,0.85);
+    --green: #4ade80;
+  }
+
+  body{
+    margin:0;
+    min-height:100vh;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color:var(--accent);
+    background: radial-gradient(1200px 600px at 10% 10%, rgba(255,120,120,0.08), transparent 15%),
+                radial-gradient(800px 600px at 90% 90%, rgba(120,180,255,0.06), transparent 18%),
+                linear-gradient(120deg, rgba(10,10,30,1), rgba(20,18,45,1));
+    overflow-y:auto;
+  }
+
+  .floaters{ position:fixed; inset:0; pointer-events:none; z-index:0; mix-blend-mode:screen; }
+  .blob{ position:absolute; filter: blur(60px); opacity:0.6; animation: drift 18s linear infinite; }
+  .b1{ width:540px;height:540px;background:radial-gradient(circle,#ff7b7b,#ffb3b3); left:-10%; top:5%; animation-duration:24s;}
+  .b2{ width:420px;height:420px;background:radial-gradient(circle,#7fb7ff,#bfe0ff); right:-10%; bottom:-5%; animation-duration:30s; animation-direction:reverse;}
+  @keyframes drift { 0%{transform:translate(0,0);} 50%{transform:translate(30px,-30px);} 100%{transform:translate(0,0);} }
+
+  .wrap{ position:relative; z-index:1; max-width:1100px; margin:48px auto; padding:36px; }
+
+  .topbar{
+    position:sticky; top:18px;
+    display:flex; gap:16px; align-items:center; justify-content:space-between;
+    padding:14px; border-radius:14px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    border:1px solid var(--glass-border);
+    box-shadow:0 8px 30px rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px) saturate(120%);
+    margin-bottom:22px;
+  }
+  .title{ display:flex; gap:12px; align-items:center; }
+  .logo{ width:56px;height:56px;border-radius:12px; background:rgba(255,255,255,0.06); display:grid;place-items:center;font-weight:700;font-size:18px; border:1px solid rgba(255,255,255,0.06); }
+  h1{ margin:0;font-size:20px; }
+  p.sub{ margin:0; opacity:0.8; font-size:13px; }
+
+  .controls{ display:flex; align-items:center; gap:12px; }
+  .clock{ min-width:180px;padding:10px 14px;border-radius:10px;text-align:center;background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(6px);font-weight:700;font-size:20px; }
+  .btn{ padding:10px 14px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.12);cursor:pointer;color:var(--accent);font-weight:600; }
+  .btn.primary{ background:rgba(255,255,255,0.06);box-shadow:0 6px 18px rgba(0,0,0,0.45);} 
+  .btn.danger{ border-color:rgba(255,100,100,0.16);} 
+
+  .card{ margin-top:12px;padding:18px;border-radius:14px;background:rgba(255,255,255,0.02);border:1px solid var(--glass-border);box-shadow:0 10px 40px rgba(0,0,0,0.6);backdrop-filter:blur(8px);} 
+  table{ width:100%; border-collapse:collapse; font-size:15px; }
+  thead th{ text-align:left; padding:12px 10px; font-size:13px; border-bottom:1px solid rgba(255,255,255,0.03);} 
+  tbody td{ padding:12px 10px; border-bottom:1px dashed rgba(255,255,255,0.03);} 
+  tr.current{ background:rgba(255,255,255,0.03);} 
+  .done{ background:rgba(74,222,128,0.12); color:var(--green); border-left:4px solid rgba(74,222,128,0.24);} 
+
+  .progress{ height:8px;width:100%;background:rgba(255,255,255,0.03);border-radius:6px;overflow:hidden;margin-top:8px; }
+  .progress>i{ height:100%;width:0%;background:linear-gradient(90deg, rgba(74,222,128,0.9), rgba(74,222,128,0.6));transition:width .2s linear; }
+</style>
+</head>
+<body>
+<div class="floaters"><div class="blob b1"></div><div class="blob b2"></div></div>
+<div class="wrap">
+  <div class="topbar">
+    <div class="title"><div class="logo">JR</div><div><h1>Jump Rope — Time Table</h1><p class="sub">Press Enter or Start to begin.</p></div></div>
+    <div class="controls">
+      <div class="clock" id="clockDisplay">00:00</div>
+      <button class="btn primary" id="startBtn">Start</button>
+      <button class="btn" id="pauseBtn">Pause</button>
+      <button class="btn danger" id="resetBtn">Reset</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;margin-bottom:12px" class="muted">
+      <div>Rounds: <strong id="roundCount">60</strong></div>
+      <div>Pattern: start jump 1:00, +30s per round; rest = jump + 30s</div>
+    </div>
+    <table><thead><tr><th>#</th><th>Jump Rope</th><th>Rest Time</th></tr></thead><tbody id="tableBody"></tbody></table>
+  </div>
+</div>
+
+<script>
+const TOTAL_ROUNDS = 60;
+const JUMP_START_SEC = 60;
+const JUMP_INCREMENT_SEC = 30;
+const REST_OFFSET_SEC = 30;
+
+const rounds=[];
+for(let r=1;r<=TOTAL_ROUNDS;r++){
+  const jump=JUMP_START_SEC+(r-1)*JUMP_INCREMENT_SEC;
+  const rest=jump+REST_OFFSET_SEC;
+  rounds.push({round:r,jumpSec:jump,restSec:rest});
+}
+
+function formatTime(s){ const m=Math.floor(s/60), ss=s%60; return `${m}:${String(ss).padStart(2,'0')}`; }
+
+const tbody=document.getElementById('tableBody');
+rounds.forEach(row=>{
+  const tr=document.createElement('tr'); tr.id=`row-${row.round}`;
+  tr.innerHTML=`<td><strong>${row.round}</strong></td>
+    <td id="jump-${row.round}"><div>${formatTime(row.jumpSec)}</div><div class='progress'><i id='prog-jump-${row.round}'></i></div></td>
+    <td id="rest-${row.round}"><div>${formatTime(row.restSec)}</div><div class='progress'><i id='prog-rest-${row.round}'></i></div></td>`;
+  tbody.appendChild(tr);
+});
+
+let currentRound=1, phase='jump', remainingSec=rounds[0].jumpSec, timer=null, running=false;
+const clock=document.getElementById('clockDisplay');
+
+function render(){
+  clock.textContent=`${phase.toUpperCase()} • R${currentRound} • ${formatTime(remainingSec)}`;
+  document.querySelectorAll('tbody tr').forEach(tr=>tr.classList.remove('current'));
+  document.getElementById(`row-${currentRound}`).classList.add('current');
+
+  const cur=rounds[currentRound-1];
+  let total=phase==='jump'?cur.jumpSec:cur.restSec;
+  let pct=Math.round((1-remainingSec/total)*100);
+  document.getElementById(`prog-${phase}-${currentRound}`).style.width=pct+'%';
+}
+
+function markDone(r,which){ document.getElementById(`${which}-${r}`).classList.add('done'); }
+
+function advance(){
+  const cur=rounds[currentRound-1];
+  if(phase==='jump'){
+    markDone(currentRound,'jump'); phase='rest'; remainingSec=cur.restSec;
+  } else {
+    markDone(currentRound,'rest');
+    if(currentRound<TOTAL_ROUNDS){ currentRound++; phase='jump'; remainingSec=rounds[currentRound-1].jumpSec; }
+    else{ pauseTimer(); clock.textContent='FINISHED 🎉'; running=false; return; }
+  }
+  render();
+}
+
+function tick(){ if(remainingSec>0){ remainingSec--; render(); } else advance(); }
+
+function startTimer(){ if(running) return; running=true; if(!timer) timer=setInterval(tick,1000); render(); }
+function pauseTimer(){ running=false; clearInterval(timer); timer=null; }
+function resetAll(){ pauseTimer(); document.querySelectorAll('td').forEach(td=>td.classList.remove('done')); document.querySelectorAll('.progress>i').forEach(i=>i.style.width='0%'); currentRound=1; phase='jump'; remainingSec=rounds[0].jumpSec; render(); }
+
+document.getElementById('startBtn').onclick=startTimer;
+document.getElementById('pauseBtn').onclick=pauseTimer;
+document.getElementById('resetBtn').onclick=resetAll;
+
+document.addEventListener('keydown',e=>{ if(e.key==='Enter'){ running?pauseTimer():startTimer(); } });
+render();
+</script>
+</body>
+</html>
