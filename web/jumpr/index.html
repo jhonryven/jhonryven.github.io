@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jump Rope Timer Fullscreen Max</title>
+  <link rel="icon" type="image/x-icon" href="JRope.ico">
+  <title>Jump Rope Blyat</title>
   <style>
     :root {
       --glass-bg: rgba(255, 255, 255, 0.08);
@@ -22,62 +23,9 @@
       min-height: 100vh;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
       color: var(--accent);
-      background:
-        radial-gradient(1200px 600px at 10% 10%, rgba(255, 120, 120, 0.08), transparent 15%),
-        radial-gradient(800px 600px at 90% 90%, rgba(120, 180, 255, 0.06), transparent 18%),
-        linear-gradient(120deg, var(--bg-dark1), var(--bg-dark2));
-      overflow-x: hidden;
+      background-image: url("bg.jpg");
     }
 
-    /* Floaters */
-    .floaters {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      mix-blend-mode: screen;
-    }
-
-    .blob {
-      position: absolute;
-      filter: blur(60px);
-      opacity: 0.6;
-      transform: translate3d(0, 0, 0);
-      animation: drift 20s linear infinite;
-    }
-
-    .b1 {
-      width: 540px;
-      height: 540px;
-      background: radial-gradient(circle, #ff7b7b, #ffb3b3);
-      left: -10%;
-      top: 5%;
-    }
-
-    .b2 {
-      width: 420px;
-      height: 420px;
-      background: radial-gradient(circle, #7fb7ff, #bfe0ff);
-      right: -10%;
-      bottom: -5%;
-      animation-direction: reverse;
-    }
-
-    @keyframes drift {
-      0% {
-        transform: translateY(0) translateX(0) scale(1)
-      }
-
-      50% {
-        transform: translateY(-30px) translateX(30px) scale(1.05)
-      }
-
-      100% {
-        transform: translateY(0) translateX(0) scale(1)
-      }
-    }
-
-    /* Setup screen */
     #setupScreen {
       position: relative;
       z-index: 10;
@@ -85,7 +33,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+
     }
 
     #setupBox {
@@ -96,6 +44,8 @@
       border: 1px solid rgba(255, 255, 255, 0.03);
       box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
       text-align: center;
+      box-sizing: border-box;
+      height: auto;
     }
 
     #setupBox h2 {
@@ -112,6 +62,17 @@
       background: rgba(255, 255, 255, 0.03);
       color: var(--accent);
       font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    #roundInput::placeholder {
+      color: #c7c7c7;
+    }
+
+    #roundInput:focus {
+      border: 3px solid rgb(255, 255, 255);
+      box-sizing: border-box;
+      outline: none;
     }
 
     #startSetup {
@@ -125,7 +86,6 @@
       color: var(--accent);
     }
 
-    /* App wrap */
     .wrap {
       max-width: 1100px;
       margin: 36px auto;
@@ -135,7 +95,6 @@
       z-index: 1;
     }
 
-    /* Topbar normal */
     .topbar {
       position: relative;
       display: flex;
@@ -155,16 +114,10 @@
     }
 
     .logo {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-      display: grid;
+      width: 50px;
+      height: 75px;
       place-items: center;
-      font-weight: 700;
-      font-size: 18px;
-      color: var(--accent);
-      border: 1px solid rgba(255, 255, 255, 0.03);
+
     }
 
     h1 {
@@ -215,7 +168,6 @@
       border-color: rgba(255, 100, 100, 0.16);
     }
 
-    /* Fullscreen maximized timer overlay */
     #maxTimer {
       position: fixed;
       top: 0;
@@ -261,7 +213,6 @@
       border-radius: 12px;
     }
 
-    /* Table card (glass) */
     .card {
       margin-top: 6px;
       padding: 18px;
@@ -337,171 +288,187 @@
       #setupBox {
         width: 92%;
       }
+
+      .topbar {
+        justify-content: center;
+        display: inline;
+        text-align: center;
+      }
+
+      .title {
+        width: 100%;
+        display: block;
+        padding-bottom: 1rem;
+      }
+
+      .controls {
+        display: block;
+      }
+    }
+
+    .imgtest {
+      width: 200px;
+      height: 100%;
+    }
+
+    #logotitle {
+      width: 100%;
+      height: 100%;
     }
   </style>
 </head>
 
 <body>
-
-  <div class="floaters">
-    <div class="blob b1"></div>
-    <div class="blob b2"></div>
-  </div>
-
-  <!-- setup -->
-  <div id="setupScreen">
-    <div id="setupBox">
-      <h2>How many rounds?</h2>
-      <input id="roundInput" type="number" min="1" value="60">
-      <button id="startSetup">Continue</button>
+  <section>
+    <div id="setupScreen">
+      <div id="setupBox" style="width:auto; height: auto;">
+        <div class="test">
+          <img src="JRope.png" alt="" class="imgtest">
+        </div>
+        <h2>Rounds</h2>
+        <input id="roundInput" type="number" min="1" placeholder="How many rounds?">
+        <button id="startSetup">Continue</button>
+      </div>
     </div>
-  </div>
 
-  <!-- main app -->
-  <div class="wrap" id="appWrap">
-    <div class="topbar" id="topbar">
-      <div class="title">
-        <div class="logo">JR</div>
+    <div class="wrap" id="appWrap">
+      <div class="topbar" id="topbar">
+        <div class="title">
+          <center>
+            <div class="logo"><img src="JRope.png" alt="" id="logotitle""></div>
+        </center>
         <div>
           <h1>Jump Rope</h1>
-          <p class="sub">Press <strong>Enter</strong> or Start to begin.</p>
+          <p class=" sub">Press <strong>Enter</strong> or Start to begin.</p>
+            </div>
+        </div>
+        <div class="controls card" id="tablecard">
+          <div class="clock" id="clockDisplay">00:00</div>
+          <button class="btn primary" id="startBtn">Start</button>
+          <button class="btn" id="pauseBtn">Pause</button>
+          <button class="btn danger" id="resetBtn">Reset</button>
+          <button class="btn" id="maxBtn">Maximize</button>
         </div>
       </div>
-      <div class="controls">
-        <div class="clock" id="clockDisplay">00:00</div>
-        <button class="btn primary" id="startBtn">Start</button>
-        <button class="btn" id="pauseBtn">Pause</button>
-        <button class="btn danger" id="resetBtn">Reset</button>
-        <button class="btn" id="maxBtn">Maximize</button>
+
+      <div class="card" id="tableCard">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div class="muted">Rounds: <strong id="roundCount">60</strong></div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Round</th>
+              <th>Jump Rope</th>
+              <th>Rest Time</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
       </div>
     </div>
 
-    <div class="card" id="tableCard">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-        <div class="muted">Rounds: <strong id="roundCount">60</strong></div>
+    <div id="maxTimer">
+      <div class="maxClock" id="maxClock">00:00</div>
+      <div class="maxMeta" id="maxMeta">R1 — JUMP</div>
+      <div class="maxControls">
+        <button class="btn primary" id="maxStart">Start</button>
+        <button class="btn" id="maxPause">Pause</button>
+        <button class="btn danger" id="maxReset">Reset</button>
+        <button class="btn" id="maxMinimize">Minimize</button>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Jump Rope</th>
-            <th>Rest Time</th>
-          </tr>
-        </thead>
-        <tbody id="tableBody"></tbody>
-      </table>
     </div>
-  </div>
 
-  <!-- Fullscreen Max Timer -->
-  <div id="maxTimer">
-    <div class="maxClock" id="maxClock">00:00</div>
-    <div class="maxMeta" id="maxMeta">R1 — JUMP</div>
-    <div class="maxControls">
-      <button class="btn primary" id="maxStart">Start</button>
-      <button class="btn" id="maxPause">Pause</button>
-      <button class="btn danger" id="maxReset">Reset</button>
-      <button class="btn" id="maxMinimize">Minimize</button>
-    </div>
-  </div>
+    <script>
+      const JUMP_TIME = 60, REST_TIME = 30;
+      let TOTAL_ROUNDS = 0, rounds = [], currentRound = 1, phase = 'jump', remainingSec = 0, timer = null, running = false;
 
-  <script>
-    const JUMP_TIME = 60, REST_TIME = 30;
-    let TOTAL_ROUNDS = 0, rounds = [], currentRound = 1, phase = 'jump', remainingSec = 0, timer = null, running = false;
+      const setupScreen = document.getElementById('setupScreen'),
+        startSetup = document.getElementById('startSetup'),
+        roundInput = document.getElementById('roundInput'),
+        appWrap = document.getElementById('appWrap'),
+        tableBody = document.getElementById('tableBody'),
+        roundCountEl = document.getElementById('roundCount'),
+        clock = document.getElementById('clockDisplay'),
+        startBtn = document.getElementById('startBtn'),
+        pauseBtn = document.getElementById('pauseBtn'),
+        resetBtn = document.getElementById('resetBtn'),
+        maxBtn = document.getElementById('maxBtn'),
+        maxTimer = document.getElementById('maxTimer'),
+        maxClock = document.getElementById('maxClock'),
+        maxMeta = document.getElementById('maxMeta'),
+        maxStart = document.getElementById('maxStart'),
+        maxPause = document.getElementById('maxPause'),
+        maxReset = document.getElementById('maxReset'),
+        maxMinimize = document.getElementById('maxMinimize');
 
-    const setupScreen = document.getElementById('setupScreen'),
-      startSetup = document.getElementById('startSetup'),
-      roundInput = document.getElementById('roundInput'),
-      appWrap = document.getElementById('appWrap'),
-      tableBody = document.getElementById('tableBody'),
-      roundCountEl = document.getElementById('roundCount'),
-      clock = document.getElementById('clockDisplay'),
-      startBtn = document.getElementById('startBtn'),
-      pauseBtn = document.getElementById('pauseBtn'),
-      resetBtn = document.getElementById('resetBtn'),
-      maxBtn = document.getElementById('maxBtn'),
-      maxTimer = document.getElementById('maxTimer'),
-      maxClock = document.getElementById('maxClock'),
-      maxMeta = document.getElementById('maxMeta'),
-      maxStart = document.getElementById('maxStart'),
-      maxPause = document.getElementById('maxPause'),
-      maxReset = document.getElementById('maxReset'),
-      maxMinimize = document.getElementById('maxMinimize');
+      const beep = new Audio("ding.mp3");
 
-    const beep = new Audio("https://actions.google.com/sounds/v1/alarms/beep_short.ogg");
-
-    function fmt(s) { return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; }
-    function buildRounds(n) {
-      rounds = []; tableBody.innerHTML = '';
-      for (let r = 1; r <= n; r++) {
-        rounds.push({ round: r, jumpSec: JUMP_TIME, restSec: REST_TIME, jumpDone: false, restDone: false });
-        const tr = document.createElement('tr');
-        tr.id = `row-${r}`;
-        tr.innerHTML = `<td><strong>${r}</strong></td>
-      <td id="jump-${r}"><div>${fmt(JUMP_TIME)}</div><div class="progress"><i id="prog-jump-${r}"></i></div></td>
-      <td id="rest-${r}"><div>${fmt(REST_TIME)}</div><div class="progress"><i id="prog-rest-${r}"></i></div></td>`;
-        tableBody.appendChild(tr);
+      function fmt(s) { return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; }
+      function buildRounds(n) {
+        rounds = []; tableBody.innerHTML = '';
+        for (let r = 1; r <= n; r++) {
+          rounds.push({ round: r, jumpSec: JUMP_TIME, restSec: REST_TIME, jumpDone: false, restDone: false });
+          const tr = document.createElement('tr');
+          tr.id = `row-${r}`;
+          tr.innerHTML = `<td><strong>${r}</strong></td>
+          <td id="jump-${r}"><div>${fmt(JUMP_TIME)}</div><div class="progress"><i id="prog-jump-${r}"></i></div></td>
+          <td id="rest-${r}"><div>${fmt(REST_TIME)}</div><div class="progress"><i id="prog-rest-${r}"></i></div></td>`;
+          tableBody.appendChild(tr);
+        }
       }
-    }
-    function render() {
-      clock.textContent = `${phase.toUpperCase()} • R${currentRound} • ${fmt(remainingSec)}`;
-      maxClock.textContent = fmt(remainingSec);
-      maxMeta.textContent = `R${currentRound} — ${phase.toUpperCase()}`;
-      document.querySelectorAll('tbody tr').forEach(tr => tr.classList.remove('current'));
-      const curRow = document.getElementById(`row-${currentRound}`);
-      if (curRow) curRow.classList.add('current');
-      const cur = rounds[currentRound - 1];
-      if (!cur) return;
-      if (phase === 'jump') {
-        const pct = Math.round((1 - remainingSec / cur.jumpSec) * 100);
-        const el = document.getElementById(`prog-jump-${currentRound}`);
-        if (el) el.style.width = pct + '%';
-      } else {
-        const pct = Math.round((1 - remainingSec / cur.restSec) * 100);
-        const el = document.getElementById(`prog-rest-${currentRound}`);
-        if (el) el.style.width = pct + '%';
+
+      function render() {
+        clock.textContent = `${phase.toUpperCase()} • Round ${currentRound} • ${fmt(remainingSec)}`;
+        maxClock.textContent = fmt(remainingSec);
+        maxMeta.textContent = `Round ${currentRound} — ${phase.toUpperCase()}`;
+        document.querySelectorAll('tbody tr').forEach(tr => tr.classList.remove('current'));
+        const curRow = document.getElementById(`row-${currentRound}`);
+        if (curRow) curRow.classList.add('current');
+        const cur = rounds[currentRound - 1];
+        if (!cur) return;
+        if (phase === 'jump') {
+          const pct = Math.round((1 - remainingSec / cur.jumpSec) * 100);
+          const el = document.getElementById(`prog-jump-${currentRound}`);
+          if (el) el.style.width = pct + '%';
+        } else {
+          const pct = Math.round((1 - remainingSec / cur.restSec) * 100);
+          const el = document.getElementById(`prog-rest-${currentRound}`);
+          if (el) el.style.width = pct + '%';
+        }
       }
-    }
-    function tick() { if (remainingSec > 0) { remainingSec--; render(); } else { advance(); } }
-    function advance() {
-      const cur = rounds[currentRound - 1]; if (!cur) return;
-      if (phase === 'jump') { cur.jumpDone = true; document.getElementById(`jump-${currentRound}`).classList.add('done'); beep.currentTime = 0; try { beep.play(); } catch (e) { }; phase = 'rest'; remainingSec = cur.restSec; }
-      else { cur.restDone = true; document.getElementById(`rest-${currentRound}`).classList.add('done'); beep.currentTime = 0; try { beep.play(); } catch (e) { }; if (currentRound < TOTAL_ROUNDS) { currentRound++; phase = 'jump'; remainingSec = rounds[currentRound - 1].jumpSec; } else { stopTimer(); clock.textContent = 'FINISHED 🎉'; maxClock.textContent = 'FINISHED 🎉'; running = false; return; } }
-      render();
-    }
-    function startTimer() { if (running) return; running = true; if (!timer) timer = setInterval(tick, 1000); render(); }
-    function pauseTimer() { running = false; if (timer) { clearInterval(timer); timer = null; } }
-    function stopTimer() { pauseTimer(); }
-    function resetAll() { pauseTimer(); rounds.forEach(r => { r.jumpDone = false; r.restDone = false }); document.querySelectorAll('tbody td').forEach(td => td.classList.remove('done')); document.querySelectorAll('.progress>i').forEach(i => i.style.width = '0%'); currentRound = 1; phase = 'jump'; remainingSec = rounds[0] ? rounds[0].jumpSec : JUMP_TIME; render(); }
+      function tick() { if (remainingSec > 0) { remainingSec--; render(); } else { advance(); } }
+      function advance() {
+        const cur = rounds[currentRound - 1]; if (!cur) return;
+        if (phase === 'jump') { cur.jumpDone = true; document.getElementById(`jump-${currentRound}`).classList.add('done'); beep.currentTime = 0; try { beep.play(); } catch (e) { }; phase = 'rest'; remainingSec = cur.restSec; }
+        else { cur.restDone = true; document.getElementById(`rest-${currentRound}`).classList.add('done'); beep.currentTime = 0; try { beep.play(); } catch (e) { }; if (currentRound < TOTAL_ROUNDS) { currentRound++; phase = 'jump'; remainingSec = rounds[currentRound - 1].jumpSec; } else { stopTimer(); clock.textContent = 'FINISHED 🎉'; maxClock.textContent = 'FINISHED 🎉'; running = false; return; } }
+        render();
+      }
+      function startTimer() { if (running) return; running = true; if (!timer) timer = setInterval(tick, 1000); render(); }
+      function pauseTimer() { running = false; if (timer) { clearInterval(timer); timer = null; } }
+      function stopTimer() { pauseTimer(); }
+      function resetAll() { pauseTimer(); rounds.forEach(r => { r.jumpDone = false; r.restDone = false }); document.querySelectorAll('tbody td').forEach(td => td.classList.remove('done')); document.querySelectorAll('.progress>i').forEach(i => i.style.width = '0%'); currentRound = 1; phase = 'jump'; remainingSec = rounds[0] ? rounds[0].jumpSec : JUMP_TIME; render(); }
 
-    // Setup continue
-    startSetup.addEventListener('click', () => {
-      const n = parseInt(roundInput.value) || 0; if (n <= 0) return;
-      TOTAL_ROUNDS = n; roundCountEl.textContent = TOTAL_ROUNDS;
-      buildRounds(TOTAL_ROUNDS);
-      currentRound = 1; phase = 'jump'; remainingSec = JUMP_TIME;
-      setupScreen.style.display = 'none'; appWrap.style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'instant' });
-      render();
-    });
+      startSetup.addEventListener('click', () => {
+        const n = parseInt(roundInput.value) || 0; if (n <= 0) return;
+        TOTAL_ROUNDS = n; roundCountEl.textContent = TOTAL_ROUNDS;
+        buildRounds(TOTAL_ROUNDS);
+        currentRound = 1; phase = 'jump'; remainingSec = JUMP_TIME;
+        setupScreen.style.display = 'none'; appWrap.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        render();
+      });
 
-    // Normal buttons
-    startBtn.addEventListener('click', startTimer); pauseBtn.addEventListener('click', pauseTimer); resetBtn.addEventListener('click', resetAll);
-
-    // Max timer buttons
-    maxStart.addEventListener('click', startTimer);
-    maxPause.addEventListener('click', pauseTimer);
-    maxReset.addEventListener('click', resetAll);
-    maxMinimize.addEventListener('click', () => { maxTimer.classList.remove('active'); });
-
-    // Maximize toggle
-    maxBtn.addEventListener('click', () => { maxTimer.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-
-    // Enter key
-    document.addEventListener('keydown', (e) => { if (e.key === 'Enter') { if (!running) startTimer(); else pauseTimer(); } });
-
-    appWrap.style.display = 'none';
-  </script>
+      startBtn.addEventListener('click', startTimer); pauseBtn.addEventListener('click', pauseTimer); resetBtn.addEventListener('click', resetAll);
+      maxStart.addEventListener('click', startTimer);
+      maxPause.addEventListener('click', pauseTimer);
+      maxReset.addEventListener('click', resetAll);
+      maxMinimize.addEventListener('click', () => { maxTimer.classList.remove('active'); });
+      maxBtn.addEventListener('click', () => { maxTimer.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Enter') { if (!running) startTimer(); else pauseTimer(); } });
+      appWrap.style.display = 'none';
+    </script>
+  </section>
 </body>
 
 </html>
