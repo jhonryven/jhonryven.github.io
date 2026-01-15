@@ -625,7 +625,7 @@ input[class=tickets]:hover {
 .banner-5 {
  width: 25%;
  height: 20vh;
- background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3) ), url(4.jpg) #000; background-repeat:  no-repeat;
+ background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3) ), url("https://i.ibb.co/gM7Z24Zt/4.jpg") #000; background-repeat:  no-repeat;
  background-attachment: fixed;
  background-position: center center; 
  background-size:  cover;
